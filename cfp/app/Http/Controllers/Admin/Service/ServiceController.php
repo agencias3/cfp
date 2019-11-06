@@ -2,10 +2,13 @@
 
 namespace AgenciaS3\Http\Controllers\Admin\Service;
 
+use AgenciaS3\Criteria\FindByNameCriteria;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
+use AgenciaS3\Repositories\SegmentRepository;
 use AgenciaS3\Repositories\ServiceRepository;
 use AgenciaS3\Services\UtilObjeto;
+use AgenciaS3\Validators\SegmentValidator;
 use AgenciaS3\Validators\ServiceValidator;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -18,22 +21,34 @@ class ServiceController extends Controller
 
     protected $validator;
 
+    protected $serviceItemController;
+
     protected $utilObjeto;
 
     protected $path;
 
     public function __construct(ServiceRepository $repository,
                                 ServiceValidator $validator,
+                                ServiceItemController $serviceItemController,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->serviceItemController = $serviceItemController;
         $this->utilObjeto = $utilObjeto;
         $this->path = 'uploads/service/';
     }
 
-    public function index()
+    public function index(AdminRequest $request)
     {
+        $name = $request->get('name');
+        if (isset($name)) {
+            $this->repository
+                ->pushCriteria(new FindByNameCriteria($name));
+        } else {
+            $this->repository->skipCriteria();
+        }
+
         $config = $this->header();
         $dados = $this->repository->orderBy('order', 'asc')->paginate();
 
@@ -61,75 +76,29 @@ class ServiceController extends Controller
     {
         try {
             $data = $request->all();
+            if (isset($data['image'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'image', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
+                if ($image) {
+                    $data['image'] = $image;
+                }
+            }
             $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
-            if(isset($data['image'])) {
-                $data['image'] = $this->uploadImage($request, $data);
-            }
-            if(isset($data['icon'])) {
-                $data['icon'] = $this->uploadIcon($request, $data);
-            }
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $dados = $this->repository->create($data);
 
             $response = [
-                'success' => 'Registro adicionado com sucesso!',
-                'data' => $dados->toArray(),
+                'success' => 'Registro adicionado com sucesso!'
             ];
 
-            return redirect()->back()->with('success', $response['success']);
+            return redirect()->route('admin.service.item.index', ['id' => $dados->id])->with('success', $response['success']);
 
         } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            if(isset($data['icon'])){
-                $this->utilObjeto->destroyFile($this->path, $data['icon']);
-            }
-            if(isset($data['image'])){
+            if (isset($data['image'])) {
                 $this->utilObjeto->destroyFile($this->path, $data['image']);
             }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
-    }
-
-    public function uploadImage($request, $data)
-    {
-        if (isset($data['image'])) {
-            $this->validate($request, [
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-
-            $imageName = md5(time()) . '.' . $data['image']->getClientOriginalExtension();
-            $request->image->move(public_path($this->path), $imageName);
-            $data['image'] = $imageName;
-
-            return $data['image'];
-        }
-
-        return null;
-    }
-
-    public function uploadIcon($request, $data)
-    {
-        if (isset($data['icon'])) {
-            $this->validate($request, [
-                'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-
-            $imageName = md5(time()) . '.' . $data['icon']->getClientOriginalExtension();
-            $request->icon->move(public_path($this->path), $imageName);
-            $data['icon'] = $imageName;
-
-            return $data['icon'];
-        }
-
-        return null;
     }
 
     public function edit($id)
@@ -145,20 +114,22 @@ class ServiceController extends Controller
     {
         try {
             $data = $request->all();
-            $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
-            if(isset($data['image'])) {
-                $data['image'] = $this->uploadImage($request, $data);
+            if (isset($data['image'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'image', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
+                if ($image) {
+                    $data['image'] = $image;
+                }
             }
-            if(isset($data['icon'])) {
-                $data['icon'] = $this->uploadIcon($request, $data);
+            $check = $this->repository->find($id);
+            if (!isset($data['seo_link']) || $check->name != $data['name']) {
+                $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
             }
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
             $dados = $this->repository->update($data, $id);
 
             $response = [
-                'success' => 'Registro alterado com sucesso!',
-                'data' => $dados->toArray(),
+                'success' => 'Registro alterado com sucesso!'
             ];
 
             return redirect()->back()->with('success', $response['success']);
@@ -191,43 +162,25 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
-        $this->destroyImage($id);
-        $this->destroyIcon($id);
+        $this->serviceItemController->destroyService($id);
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');
     }
 
-    public function destroyImage($id)
+    public function destroyFile($id, $name)
     {
         $dados = $this->repository->find($id);
-        if (isset($dados->image)) {
+        if (isset($dados->$name)) {
             $data = $dados->toArray();
-            if (isset($dados->image) && $this->utilObjeto->destroyFile($this->path, $dados->image)) {
+            if (isset($dados->$name) && $this->utilObjeto->destroyFile($this->path, $dados->$name)) {
 
-                $data['image'] = '';
+                $data[$name] = '';
                 $this->repository->update($data, $id);
 
-                return redirect()->back()->with('success', 'Imagem removida com sucesso!');
+                return redirect()->back()->with('success', ucfirst($name) . ' removida com sucesso!');
             }
 
-            return redirect()->back()->withErrors('Erro ao excluír Imagem')->withInput();
-        }
-    }
-
-    public function destroyIcon($id)
-    {
-        $dados = $this->repository->find($id);
-        if (isset($dados->icon)) {
-            $data = $dados->toArray();
-            if (isset($dados->icon) && $this->utilObjeto->destroyFile($this->path, $dados->icon)) {
-
-                $data['icon'] = '';
-                $this->repository->update($data, $id);
-
-                return redirect()->back()->with('success', 'Ícon removido com sucesso!');
-            }
-
-            return redirect()->back()->withErrors('Erro ao excluír Ícon')->withInput();
+            return redirect()->back()->withErrors('Erro ao excluír ' . ucfirst($name))->withInput();
         }
     }
 

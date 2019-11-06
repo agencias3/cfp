@@ -26,6 +26,7 @@ class PageItem extends Model implements Transformable
     protected $fillable = [
         'page_id',
         'name',
+        'description',
         'order',
         'active'
     ];

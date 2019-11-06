@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7fe4783-4e06-413e-ac92-5cac3525260f" name="Default Changelist" comment="" />
+    <list default="true" id="b7fe4783-4e06-413e-ac92-5cac3525260f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentItemController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/_form_filter.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/inc/menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/item/_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/item/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/item/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/admin/service/item/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cfp/resources/views/site/newsletter/_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Entities/PageItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Entities/PageItem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Entities/Segment.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Entities/Segment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Configuration/Page/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Configuration/Page/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentClientController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentImageController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceProcessController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/database/migrations/2019_09_18_093125_create_segment_items_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/inc/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/inc/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/item/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/item/_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/layouts/forms/_name.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/layouts/forms/_name.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/layouts/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form_filter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form_filter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/client/_form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/client/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/gallery/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/inc/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/inc/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/admin/segment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/product/_form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/admin/segment/product/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/site/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/site/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/inc/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/client.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/client.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/partner/admin.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/partner/client.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/client.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/created.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/created.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/new_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/new_password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/reset_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/reset_password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfp/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/cfp/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/cfp/assets/site/js/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/cfp/assets/site/js/forms.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,33 +77,112 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/home/index.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_11_06_184226_create_teams_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="306">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfp/app/Entities/Team.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="31" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cfp/app/Validators/TeamValidator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$product_id</find>
+      <find>product.</find>
+      <find>product_id</find>
+      <find>product.text.</find>
+      <find>segment</find>
+      <find>services</find>
+      <find>segment.</find>
+      <find>segment_id</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>$segment_id</replace>
+      <replace>segment.item.</replace>
+      <replace>segment_id</replace>
+      <replace>segment.item</replace>
+      <replace>service.</replace>
+      <replace>service_id</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/cfp/.htaccess" />
-        <option value="$PROJECT_DIR$/cfp/database/migrations/2019_09_17_165514_create_segments_table.php" />
-        <option value="$PROJECT_DIR$/cfp/database/migrations/2019_09_18_093125_create_segment_items_table.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/edit.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/segment/item/index.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/segment/index.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/segment/_form_filter.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Validators/ServiceValidator.php" />
+        <option value="$PROJECT_DIR$/cfp/database/migrations/2019_11_06_173317_create_service_items_table.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Entities/ServiceItem.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Validators/ServiceItemValidator.php" />
+        <option value="$PROJECT_DIR$/cfp/database/migrations/2019_11_06_173646_create_service_contacts_table.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Entities/ServiceContact.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Entities/Service.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Validators/ServiceContactValidator.php" />
         <option value="$PROJECT_DIR$/cfp/routes/admin.php" />
-        <option value="$PROJECT_DIR$/cfp/app/Application.php" />
-        <option value="$PROJECT_DIR$/cfp/resources/views/admin/banner/desktop/_form.blade.php" />
-        <option value="$PROJECT_DIR$/cfp/resources/views/admin/banner/mobile/_form.blade.php" />
-        <option value="$PROJECT_DIR$/cfp/app/Http/Controllers/Site/HomeController.php" />
-        <option value="$PROJECT_DIR$/cfp/.env" />
-        <option value="$PROJECT_DIR$/cfp/config/seotools.php" />
-        <option value="$PROJECT_DIR$/cfp/resources/views/site/home/inc/banner.blade.php" />
-        <option value="$PROJECT_DIR$/cfp/resources/views/site/home/index.blade.php" />
-        <option value="$PROJECT_DIR$/cfp/app/Http/Controllers/Site/PageController.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/inc/menu.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/index.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/edit.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/create.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/_form_filter.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/item/_form.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceController.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceItemController.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/item/index.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/item/edit.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/item/create.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/service/_form.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/inc/header.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/reset_password.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/new_password.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/created.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/admin.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/client.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/admin.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/client.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/site/layouts/header.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/admin.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/client.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/site/newsletter/_form.blade.php" />
+        <option value="$PROJECT_DIR$/www/cfp/assets/site/js/forms.js" />
+        <option value="$PROJECT_DIR$/cfp/routes/web.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Validators/PageValidator.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/layouts/forms/_name.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/inc/menu.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Entities/PageItem.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/item/_form.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/layouts/menu.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Configuration/Page/PageController.php" />
+        <option value="$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/_form.blade.php" />
+        <option value="$PROJECT_DIR$/cfp/database/migrations/2019_11_06_184226_create_teams_table.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Entities/Team.php" />
+        <option value="$PROJECT_DIR$/cfp/app/Validators/TeamValidator.php" />
       </list>
     </option>
   </component>
@@ -135,12 +275,13 @@
       <path value="$PROJECT_DIR$/cfp/vendor/mtdowling/cron-expression" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
-    <option name="y" value="81" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -162,43 +303,33 @@
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
@@ -206,44 +337,75 @@
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="cfp" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
               <item name="cfp" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="ckeditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="cfp" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -253,20 +415,24 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/www/cfp/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Projetos\DESENV\cfp\cfp\app\Http\Controllers\Admin\Service" />
+      <recent name="E:\Projetos\DESENV\cfp\cfp\resources\views\admin" />
+      <recent name="E:\Projetos\DESENV\cfp\cfp\app\Http\Controllers\Admin\Segment" />
+      <recent name="E:\Projetos\DESENV\cfp\cfp\resources\views\admin\segment" />
       <recent name="E:\Projetos\DESENV\cfp\www\cfp\assets" />
-      <recent name="E:\Projetos\DESENV\cfp\cfp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projetos\DESENV\cfp\cfp\resources\views" />
@@ -298,15 +464,16 @@
       <updated>1572891799560</updated>
       <workItem from="1572891801294" duration="6527000" />
       <workItem from="1572965795612" duration="23000" />
-      <workItem from="1573065080846" duration="1623000" />
+      <workItem from="1573065080846" duration="7916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8173000" />
+    <option name="totallyTimeSpent" value="14466000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="81" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23560767" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -358,173 +525,362 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Requests/SiteRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/cfp/.htaccess">
+    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_11_06_173646_create_service_contacts_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="37" />
+        <state relative-caret-position="306">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/cfp/index.php">
+    <entry file="file://$PROJECT_DIR$/cfp/app/Entities/Contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+        <state relative-caret-position="342">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="33" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_05_31_142412_create_banners_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/app/Entities/Service.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="342">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_05_31_153007_create_seo_pages_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/app/Entities/ServiceContact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="223">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_06_06_094659_create_tags_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/app/Validators/ContactValidator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="476">
+          <caret line="29" column="44" lean-forward="true" selection-start-line="29" selection-start-column="44" selection-end-line="36" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_06_06_094708_create_posts_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/app/Validators/ServiceContactValidator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="376">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_06_06_173314_create_contacts_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="518">
+          <caret line="52" column="96" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_09_17_165514_create_segments_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+        <state relative-caret-position="204">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/seeds/DatabaseSeeder.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_09_18_093125_create_segment_items_table.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/_form_filter.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        <state relative-caret-position="68">
+          <caret line="4" column="98" selection-start-line="4" selection-start-column="98" selection-end-line="4" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/inc/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Segment/SegmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="138" column="13" lean-forward="true" selection-end-line="200" />
+          <folding>
+            <element signature="e#60#102#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1522">
+          <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
+          <folding>
+            <element signature="e#60#102#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Service/ServiceItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/item/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/item/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="92" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/item/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="81" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/item/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/service/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfp/routes/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        <state relative-caret-position="103">
+          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/cfp/assets/admin/js/gallery/common.js">
+    <entry file="file://$PROJECT_DIR$/www/cfp/web.config">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/app/Application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/banner/desktop/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/banner/mobile/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfp/config/seotools.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+        <state relative-caret-position="357">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/home/inc/banner.blade.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/inc/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="127" selection-start-line="6" selection-start-column="127" selection-end-line="6" selection-end-column="127" />
+        <state relative-caret-position="68">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Site/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/reset_password.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="340">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/new_password.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/layouts/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="136" column="51" selection-start-line="136" selection-start-column="51" selection-end-line="136" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/_apagar/work/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="8" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/users/created.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/newsletter/client.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/contact/client.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/vendor/emails/site/work/client.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="81" selection-start-line="26" selection-start-column="81" selection-end-line="26" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+        <state relative-caret-position="427">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/_apagar/home/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/newsletter/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="2" selection-end-column="70" />
+        <state relative-caret-position="391">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/contact/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/www/cfp/assets/site/js/forms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Site/PageController.php">
+    <entry file="file://$PROJECT_DIR$/cfp/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="58" lean-forward="true" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/about/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Validators/PageValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/layouts/forms/_name.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="111" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/inc/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Entities/PageItem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfp/resources/views/site/home/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/item/_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="34">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/layouts/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Http/Controllers/Admin/Configuration/Page/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/resources/views/admin/configuration/page/_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/database/migrations/2019_11_06_184226_create_teams_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Entities/Team.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfp/app/Validators/TeamValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
         </state>
       </provider>
     </entry>

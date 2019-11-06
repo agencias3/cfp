@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateSegmentClientsTable.
+ * Class CreateServicesTable.
  */
-class CreateSegmentItemsTable extends Migration
+class CreateServicesTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,14 +15,16 @@ class CreateSegmentItemsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('segment_items', function(Blueprint $table) {
+		Schema::create('services', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('segment_id')->unsigned();
-            $table->foreign('segment_id')->references('id')->on('segments');
             $table->string('name');
+            $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->integer('order')->nullable();
             $table->enum('active', ['y', 'n'])->default('n');
+            $table->string('seo_description', 255)->nullable();
+            $table->string('seo_keywords', 255)->nullable();
+            $table->string('seo_link');
             $table->timestamps();
             $table->softDeletes();
 		});
@@ -35,6 +37,6 @@ class CreateSegmentItemsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('segment_items');
+		Schema::drop('services');
 	}
 }

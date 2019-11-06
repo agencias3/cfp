@@ -1,76 +1,78 @@
 <?php
 
-namespace AgenciaS3\Http\Controllers\Admin\Service;
+namespace AgenciaS3\Http\Controllers\Admin\Segment;
 
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
-use AgenciaS3\Repositories\ServiceProcessRepository;
-use AgenciaS3\Validators\ServiceProcessValidator;
+use AgenciaS3\Repositories\ProductTextRepository;
+use AgenciaS3\Repositories\SegmentItemRepository;
+use AgenciaS3\Services\UtilObjeto;
+use AgenciaS3\Validators\ProductTextValidator;
+use AgenciaS3\Validators\SegmentItemValidator;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 
-class ServiceProcessController extends Controller
+class SegmentItemController extends Controller
 {
 
     protected $repository;
 
     protected $validator;
 
-    public function __construct(ServiceProcessRepository $repository,
-                                ServiceProcessValidator $validator)
+    protected $utilObjeto;
+
+    public function __construct(SegmentItemRepository $repository,
+                                SegmentItemValidator $validator,
+                                UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->utilObjeto = $utilObjeto;
     }
 
-    public function index($service_id)
+    public function index($segment_id)
     {
         $config = $this->header();
-        $dados = $this->repository->orderBy('order', 'asc')->findByField('service_id', $service_id);
+        $dados = $this->repository->orderBy('order', 'asc')->scopeQuery(function ($query) use ($segment_id) {
+            return $query->where('segment_id', $segment_id);
+        })->paginate();
 
-        return view('admin.service.process.index', compact('dados', 'config', 'service_id'));
+        return view('admin.segment.item.index', compact('dados', 'config', 'segment_id'));
     }
 
     public function header()
     {
-        $config['title'] = "Serviços > Processos";
-        $config['activeMenu'] = "service";
-        $config['activeMenuN2'] = "service";
+        $config['title'] = "Segmentos > Items";
+        $config['activeMenu'] = "segment";
+        $config['activeMenuN2'] = "item";
 
         return $config;
     }
 
-    public function create($service_id)
+    public function create($segment_id)
     {
         $config = $this->header();
         $config['action'] = 'Cadastrar';
 
-        return view('admin.service.process.create', compact('config', 'service_id'));
+        return view('admin.segment.item.create', compact('config', 'segment_id'));
     }
 
     public function store(AdminRequest $request)
     {
         try {
             $data = $request->all();
+
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $dados = $this->repository->create($data);
 
             $response = [
-                'success' => 'Registro adicionado com sucesso!',
-                'data' => $dados->toArray(),
+                'success' => 'Registro adicionado com sucesso!'
             ];
 
             return redirect()->back()->with('success', $response['success']);
 
         } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
@@ -80,21 +82,21 @@ class ServiceProcessController extends Controller
         $config = $this->header();
         $config['action'] = 'Editar';
         $dados = $this->repository->find($id);
-        $service_id = $dados->service_id;
+        $segment_id = $dados->segment_id;
 
-        return view('admin.service.process.edit', compact('dados', 'config', 'service_id'));
+        return view('admin.segment.item.edit', compact('dados', 'config', 'segment_id'));
     }
 
     public function update(AdminRequest $request, $id)
     {
         try {
             $data = $request->all();
+
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
             $dados = $this->repository->update($data, $id);
 
             $response = [
-                'success' => 'Registro alterado com sucesso!',
-                'data' => $dados->toArray(),
+                'success' => 'Registro alterado com sucesso!'
             ];
 
             return redirect()->back()->with('success', $response['success']);
@@ -129,6 +131,15 @@ class ServiceProcessController extends Controller
     {
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');
+    }
+
+    public function destroySegment($id)
+    {
+        if ($id) {
+            return $this->repository->deleteWhere(['segment_id' => $id]);
+        }
+
+        return false;
     }
 
 }

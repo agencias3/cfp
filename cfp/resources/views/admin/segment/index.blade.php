@@ -48,9 +48,8 @@
                                     </div>
                                 </td>
                                 <td data-title="Ação" class="actions text-center">
-                                    <a href="{{ route('admin.segment.client.index', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Clientes"><i class="fa fa-users"></i></a>
-                                    <a href="{{ route('admin.segment.gallery.index', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Galeria"><i class="fa fa-image"></i></a>
-                                    <a href="{{ route('admin.segment.edit', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Editar"><i class="fa el-icon-file-edit"></i></a>
+                                    <a href="{{ route('admin.segment.item.index', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Galeria"><i class="fa fa-list-ul"></i></a>
+                                    <a href="{{ route('admin.segment.edit', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Itens"><i class="fa el-icon-file-edit"></i></a>
                                     <a href="#modalDestroy" data-route="{{ route('admin.segment.destroy', ['id' => $row->id]) }}" class="excluir remove-row btn btn-danger white" title="Excluir">
                                         <i class="fa fa-trash-o"></i>
                                     </a>

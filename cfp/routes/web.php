@@ -30,11 +30,11 @@ Route::group(['namespace' => 'Site'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/wesa', 'AboutController@index')->name('about');
+    Route::get('/quem-somos', 'AboutController@index')->name('about');
 
-    Route::get('/produtos', 'ProductController@index')->name('product');
-    Route::get('/produtos/{seo_link}', 'ProductController@category')->name('product.category');
-    Route::get('/produtos/{category}/{seo_link}', 'ProductController@show')->name('product.show');
+    Route::get('/areas-atuacao', 'ProductController@index')->name('service');
+    Route::get('/areas-atuacao/{seo_link}', 'ProductController@category')->name('service.show');
+    //Route::get('/produtos/{category}/{seo_link}', 'ProductController@show')->name('product.show');
 
     Route::get('/seguimentos', 'SegmentController@index')->name('segment');
     Route::get('/seguimentos/{seo_link}', 'SegmentController@show')->name('segment.show');
@@ -55,8 +55,8 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/contato', 'ContactController@index')->name('contact');
     Route::post('/contato/store', 'ContactController@store')->name('contact.store');
 
-    Route::get('/trabalhe-conosco', 'WorkController@index')->name('work');
-    Route::post('/trabalhe-conosco/store', 'WorkController@store')->name('work.store');
+    Route::get('/carreiras', 'WorkController@index')->name('work');
+    Route::post('/carreiras/store', 'WorkController@store')->name('work.store');
 
     Route::get('/parceiros', 'PartnerController@index')->name('partner');
     Route::post('/parceiros/store', 'PartnerController@store')->name('partner.store');

@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="form-group">
             {!! Form::label('name', 'Nome *') !!}
-            {!! Form::text('name', null, ['class'=>'form-control', 'required' => 'required', 'maxlength' => 255]) !!}
+            {!! Form::text('name', null, ['class'=>'form-control', 'required' => 'required', 'maxlength' => 191]) !!}
         </div>
     </div>
 </div>

@@ -19,11 +19,7 @@ class SegmentController extends Controller
 
     protected $validator;
 
-    protected $segmentImageController;
-
-    protected $segmentClientController;
-
-    protected $segmentProductController;
+    protected $segmentItemController;
 
     protected $utilObjeto;
 
@@ -31,16 +27,12 @@ class SegmentController extends Controller
 
     public function __construct(SegmentRepository $repository,
                                 SegmentValidator $validator,
-                                SegmentImageController $segmentImageController,
-                                SegmentClientController $segmentClientController,
-                                SegmentProductController $segmentProductController,
+                                SegmentItemController $segmentItemController,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
-        $this->segmentClientController = $segmentClientController;
-        $this->segmentImageController = $segmentImageController;
-        $this->segmentProductController = $segmentProductController;
+        $this->segmentItemController = $segmentItemController;
         $this->utilObjeto = $utilObjeto;
         $this->path = 'uploads/segment/';
     }
@@ -88,10 +80,10 @@ class SegmentController extends Controller
                     $data['image'] = $image;
                 }
             }
-            if (isset($data['file'])) {
-                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'file', 'max:10240');
+            if (isset($data['icon'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'max:2048');
                 if ($image) {
-                    $data['file'] = $image;
+                    $data['icon'] = $image;
                 }
             }
             $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
@@ -103,13 +95,14 @@ class SegmentController extends Controller
                 'success' => 'Registro adicionado com sucesso!'
             ];
 
-            return redirect()->back()->with('success', $response['success']);
+            return redirect()->route('admin.segment.item.index', ['id' => $dados->id])->with('success', $response['success']);
+
         } catch (ValidatorException $e) {
             if (isset($data['image'])) {
                 $this->utilObjeto->destroyFile($this->path, $data['image']);
             }
-            if (isset($data['file'])) {
-                $this->utilObjeto->destroyFile($this->path, $data['file']);
+            if (isset($data['icon'])) {
+                $this->utilObjeto->destroyFile($this->path, $data['icon']);
             }
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
@@ -134,10 +127,10 @@ class SegmentController extends Controller
                     $data['image'] = $image;
                 }
             }
-            if (isset($data['file'])) {
-                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'file', 'max:10240');
+            if (isset($data['icon'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'max:2048');
                 if ($image) {
-                    $data['file'] = $image;
+                    $data['icon'] = $image;
                 }
             }
             $check = $this->repository->find($id);
@@ -182,9 +175,7 @@ class SegmentController extends Controller
 
     public function destroy($id)
     {
-        $this->segmentClientController->destroyAllPost($id);
-        $this->segmentImageController->destroyGallery($id);
-        $this->segmentProductController->destroyAllPost($id);
+        $this->segmentItemController->destroySegment($id);
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');
     }

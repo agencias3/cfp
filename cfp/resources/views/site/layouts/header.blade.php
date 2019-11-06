@@ -9,25 +9,33 @@
                 </figure>
             </section>
             <aside class="self-center c-left">
+                @if(isPost(session()->get('configuration')[3]['description']) || isPost(session()->get('configuration')[4]['description']) || isPost(session()->get('configuration')[5]['description']))
                 <nav class="f-left list-social smooth display-800-none">
                     <ul>
+                        @if(isPost(session()->get('configuration')[3]['description']))
                         <li>
-                            <a href="" title="Facebook">
+                            <a href="{{ session()->get('configuration')[3]['description'] }}" target="_blank" title="Facebook">
                                 <img src="{{ asset('assets/site/images/facebook.png') }}" title="Facebook" alt="Facebook" />
                             </a>
                         </li>
+                        @endif
+                        @if(isPost(session()->get('configuration')[4]['description']))
                         <li>
-                            <a href="" title="Instagram">
+                            <a href="{{ session()->get('configuration')[4]['description'] }}" target="_blank" title="Instagram">
                                 <img src="{{ asset('assets/site/images/instagram.png') }}" title="Instagram" alt="Instagram" />
                             </a>
                         </li>
+                        @endif
+                        @if(isPost(session()->get('configuration')[5]['description']))
                         <li>
-                            <a href="" title="Linkedin">
+                            <a href="{{ session()->get('configuration')[5]['description'] }}" target="_blank" title="Linkedin">
                                 <img src="{{ asset('assets/site/images/linkedin.png') }}" title="Linkedin" alt="Linkedin" />
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </nav>
+                @endif
                 <a class="action-menu" onclick="openHeader()" href="javascript:void(0);" title="Menu">
                     <b>
                         Menu
@@ -51,94 +59,82 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="active" href="" title="Home">
+                                <a @if($ativo == 'home') class="active" @endif href="{{ route('home') }}" title="Home">
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="" title="Quem somos">
+                                <a @if($ativo == 'quem-somos') class="active" @endif href="{{ route('about') }}" title="Quem somos">
                                     Quem somos
                                 </a>
                             </li>
                             <li>
-                                <a href="" title="Áreas de Expertise">
+                                <a  @if($ativo == 'areas-atuacao' || $ativo == 'areas-atuacao/{seo_link}') class="active" @endif href="{{ route('service') }}" title="Áreas de Expertise">
                                     Áreas de Expertise
                                 </a>
                             </li>
                             <li>
-                                <a href="" title="Notícias  e Artigos">
+                                <a  @if($ativo == 'noticias' || $ativo == 'noticias/tag/{tag}' || $ativo == 'noticias/{seo_link}') class="active" @endif href="" title="Notícias  e Artigos">
                                     Notícias  e Artigos
                                 </a>
                             </li>
                             <li>
-                                <a href="" title="Carreiras">
+                                <a @if($ativo == 'carreiras') class="active" @endif href="{{ route('work') }}" title="Carreiras">
                                     Carreiras
                                 </a>
                             </li>
                             <li>
-                                <a href="" title="Contato">
+                                <a @if($ativo == 'contact') class="active" @endif href="{{ route('contact') }}" title="Contato">
                                     Contato
                                 </a>
                             </li>
                         </ul>
                     </nav>
+                    @if(isPost(session()->get('configuration')[3]['description']) || isPost(session()->get('configuration')[4]['description']) || isPost(session()->get('configuration')[5]['description']))
                     <nav class="w-100 c-left m-top-80 list-social display-1024-none">
                         <ul class="m-left-40-px">
+                            @if(isPost(session()->get('configuration')[3]['description']))
                             <li>
-                                <a href="" title="Facebook">
+                                <a href="{{ session()->get('configuration')[3]['description'] }}" target="_blank" title="Facebook">
                                     <img src="{{ asset('assets/site/images/facebook.png') }}" title="Facebook" alt="Facebook" />
                                 </a>
                             </li>
+                            @endif
+                            @if(isPost(session()->get('configuration')[4]['description']))
                             <li>
-                                <a href="" title="Instagram">
+                                <a href="{{ session()->get('configuration')[4]['description'] }}" target="_blank" title="Instagram">
                                     <img src="{{ asset('assets/site/images/instagram.png') }}" title="Instagram" alt="Instagram" />
                                 </a>
                             </li>
+                            @endif
+                            @if(isPost(session()->get('configuration')[5]['description']))
                             <li>
-                                <a href="" title="Linkedin">
+                                <a href="{{ session()->get('configuration')[5]['description'] }}" target="_blank" title="Linkedin">
                                     <img src="{{ asset('assets/site/images/linkedin.png') }}" title="Linkedin" alt="Linkedin" />
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </nav>
+                    @endif
                 </section>
                 <aside class="w-450-px display-1024-none">
                     <article class="w-100">
                         <span class="w-100 color-white f-size-24 f-w-700">
                             Fale Conosco
                         </span>
+                        @if(isPost(session()->get('configuration')[6]['description']))
                         <p class="w-100 m-top-25 color-white f-size-16">
-                            Fone: 51 3212.2233
+                            Fone: {{ session()->get('configuration')[6]['description'] }}
                         </p>
+                        @endif
+                        @if(isPost(session()->get('configuration')[7]['description']))
                         <p class="w-100 m-top-25 color-white f-size-16">
-                            E-mail: <a class="color-white t-decoration" href="" title="contato@cfp.com.br">contato@cfp.com.br</a>
+                            E-mail: <a class="color-white t-decoration" href="mailto:{{ session()->get('configuration')[7]['description'] }}" title="{{ session()->get('configuration')[7]['description'] }}">{{ session()->get('configuration')[7]['description'] }}</a>
                         </p>
+                        @endif
                     </article>
-                    <article class="w-100 m-top-50">
-                        <span class="w-100 d_flex title-3">
-                            <b>
-                                CFP News
-                            </b>
-                        </span>
-                        <div class="w-100 m-top-30 color-white text">
-                            <p>
-                                Fique por dentro de notícias e artigos publicados em nosso Portal.
-                            </p>
-                        </div>
-                        <form class="w-100 m-top-40 form-newsletter" id="fNewsletter" method="get" action="">
-                            <label class="w-100 color-white f-size-16" for="newsletter-email">
-                                Assine a nossa Newsletter. Insira seu
-                            </label>
-                            <div class="w-100 m-top-20 d_flex">
-                                <fieldset class="flex-1">
-                                    <input class="w-100" type="email" name="" value="" placeholder="seuemail@example.com.br" />
-                                </fieldset>
-                                <fieldset>
-                                    <input class="w-100 pointer smooth" type="submit" id="send-newsletter" value="" />
-                                </fieldset>
-                            </div>
-                        </form>
-                    </article>
+                    @include('site.newsletter._form')
                 </aside>
             </article>
         </div>

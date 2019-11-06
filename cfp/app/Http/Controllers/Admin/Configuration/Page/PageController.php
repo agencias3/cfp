@@ -86,17 +86,11 @@ class PageController extends Controller
     {
         $config = $this->header();
         $config['action'] = 'Editar';
-        if ($id == 1 || $id == 3 || $id == 4 || $id == 5) {
+        if ($id >=2 || $id <= 7) {
             $config['activeMenu'] = "about";
         }
 
-        if ($id == 2) {
-            $config['activeMenu'] = "segment";
-        }
-        if ($id == 6) {
-            $config['activeMenu'] = "form";
-        }
-        if ($id == 7) {
+        if ($id == 1) {
             $config['activeMenu'] = "tip";
         }
 
@@ -105,7 +99,7 @@ class PageController extends Controller
             $imageSize = '470px X 370px';
         }
         if ($id == 2) {
-            $imageSize = '500px X 537px';
+            $imageSize = '1920px X 490px';
         }
 
         $bannerSize = '1920px X 500px';

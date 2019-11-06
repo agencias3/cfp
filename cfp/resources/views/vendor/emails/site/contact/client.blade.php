@@ -19,12 +19,12 @@
 $style = [
     /* Layout ------------------------------ */
 
-    'body' => 'margin: 0; padding: 0; width: 100%; background-color: #0d3880;',
-    'email-wrapper' => 'width: 100%; margin: 0; padding: 0; background-color: #0d3880;',
+    'body' => 'margin: 0; padding: 0; width: 100%; background-color: #27304f;',
+    'email-wrapper' => 'width: 100%; margin: 0; padding: 0; background-color: #27304f;',
 
     /* Masthead ----------------------- */
 
-    'email-masthead' => 'padding: 25px 0; text-align: center; background: #ffffff;',
+    'email-masthead' => 'padding: 25px 0; text-align: center; background: #27304f;',
     'email-masthead_name' => 'font-size: 16px; font-weight: bold; color: #2F3133; text-decoration: none; text-shadow: 0 1px 0 white;',
 
     'email-body' => 'width: 100%; margin: 0; padding: 0; border-top: 1px solid #EDEFF2; border-bottom: 1px solid #EDEFF2; background-color: #FFF;',
