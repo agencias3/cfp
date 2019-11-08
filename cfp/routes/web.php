@@ -32,8 +32,8 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/quem-somos', 'AboutController@index')->name('about');
 
-    Route::get('/areas-atuacao', 'ProductController@index')->name('service');
-    Route::get('/areas-atuacao/{seo_link}', 'ProductController@category')->name('service.show');
+    Route::get('/areas-atuacao', 'ServiceController@index')->name('service');
+    Route::get('/areas-atuacao/{seo_link}', 'ServiceController@show')->name('service.show');
     //Route::get('/produtos/{category}/{seo_link}', 'ProductController@show')->name('product.show');
 
     Route::get('/seguimentos', 'SegmentController@index')->name('segment');

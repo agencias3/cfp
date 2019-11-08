@@ -24,6 +24,7 @@ class Team extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
+        'type',
         'name',
         'email',
         'office',

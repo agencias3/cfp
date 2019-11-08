@@ -20,7 +20,7 @@
         ])
     @endif
     @if($dados->id != 9 && $dados->id != 10 &&
-    $dados->id != 7 && $dados->id != 17)
+    $dados->id != 7 && $dados->id != 8)
         @include('admin.layouts.forms._description')
     @endif
 @endif

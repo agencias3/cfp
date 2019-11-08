@@ -1,63 +1,50 @@
 <?php
 
-namespace AgenciaS3\Http\Controllers\Admin\Service;
+namespace AgenciaS3\Http\Controllers\Admin\Team;
 
-use AgenciaS3\Criteria\FindByNameCriteria;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
-use AgenciaS3\Repositories\ServiceRepository;
+use AgenciaS3\Repositories\TeamRepository;
 use AgenciaS3\Services\UtilObjeto;
-use AgenciaS3\Validators\ServiceValidator;
+use AgenciaS3\Validators\TeamValidator;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 
-class ServiceController extends Controller
+class TeamController extends Controller
 {
 
     protected $repository;
 
     protected $validator;
 
-    protected $serviceItemController;
-
     protected $utilObjeto;
 
     protected $path;
 
-    public function __construct(ServiceRepository $repository,
-                                ServiceValidator $validator,
-                                ServiceItemController $serviceItemController,
+    public function __construct(TeamRepository $repository,
+                                TeamValidator $validator,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
-        $this->serviceItemController = $serviceItemController;
         $this->utilObjeto = $utilObjeto;
-        $this->path = 'uploads/service/';
+        $this->path = 'uploads/team/';
     }
 
-    public function index(AdminRequest $request)
+    public function index()
     {
-        $name = $request->get('name');
-        if (isset($name)) {
-            $this->repository
-                ->pushCriteria(new FindByNameCriteria($name));
-        } else {
-            $this->repository->skipCriteria();
-        }
-
         $config = $this->header();
         $dados = $this->repository->orderBy('order', 'asc')->paginate();
 
-        return view('admin.service.index', compact('dados', 'config'));
+        return view('admin.team.index', compact('dados', 'config'));
     }
 
     public function header()
     {
-        $config['title'] = "Serviços";
-        $config['activeMenu'] = "service";
-        $config['activeMenuN2'] = "service";
+        $config['title'] = "Equipe";
+        $config['activeMenu'] = "about";
+        $config['activeMenuN2'] = "team";
 
         return $config;
     }
@@ -67,7 +54,7 @@ class ServiceController extends Controller
         $config = $this->header();
         $config['action'] = 'Cadastrar';
 
-        return view('admin.service.create', compact('config'));
+        return view('admin.team.create', compact('config'));
     }
 
     public function store(AdminRequest $request)
@@ -80,13 +67,6 @@ class ServiceController extends Controller
                     $data['image'] = $image;
                 }
             }
-            if (isset($data['icon'])) {
-                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
-                if ($image) {
-                    $data['icon'] = $image;
-                }
-            }
-            $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $dados = $this->repository->create($data);
@@ -95,14 +75,11 @@ class ServiceController extends Controller
                 'success' => 'Registro adicionado com sucesso!'
             ];
 
-            return redirect()->route('admin.service.item.index', ['id' => $dados->id])->with('success', $response['success']);
+            return redirect()->back()->with('success', $response['success']);
 
         } catch (ValidatorException $e) {
             if (isset($data['image'])) {
                 $this->utilObjeto->destroyFile($this->path, $data['image']);
-            }
-            if (isset($data['icon'])) {
-                $this->utilObjeto->destroyFile($this->path, $data['icon']);
             }
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
@@ -112,9 +89,10 @@ class ServiceController extends Controller
     {
         $config = $this->header();
         $config['action'] = 'Editar';
+
         $dados = $this->repository->find($id);
 
-        return view('admin.service.edit', compact('dados', 'config'));
+        return view('admin.team.edit', compact('dados', 'config'));
     }
 
     public function update(AdminRequest $request, $id)
@@ -127,22 +105,12 @@ class ServiceController extends Controller
                     $data['image'] = $image;
                 }
             }
-            if (isset($data['icon'])) {
-                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
-                if ($image) {
-                    $data['icon'] = $image;
-                }
-            }
-            $check = $this->repository->find($id);
-            if (!isset($data['seo_link']) || $check->name != $data['name']) {
-                $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
-            }
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
             $dados = $this->repository->update($data, $id);
 
             $response = [
-                'success' => 'Registro alterado com sucesso!'
+                'success' => 'Registro atualizado com sucesso!'
             ];
 
             return redirect()->back()->with('success', $response['success']);
@@ -156,17 +124,17 @@ class ServiceController extends Controller
     {
         try {
             $dados = $this->repository->find($id);
-
             $data = $dados->toArray();
+
             if ($dados->active == 'y') {
                 $data['active'] = 'n';
             } else {
                 $data['active'] = 'y';
             }
 
-            $dados = $this->repository->update($data, $id);
+            $update = $this->repository->update($data, $id);
 
-            return $dados;
+            return $update;
 
         } catch (ValidatorException $e) {
             return false;
@@ -175,7 +143,6 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
-        $this->serviceItemController->destroyService($id);
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');
     }

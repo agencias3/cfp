@@ -10,6 +10,7 @@ use AgenciaS3\Repositories\CategoryRepository;
 use AgenciaS3\Repositories\PostRepository;
 use AgenciaS3\Repositories\ProductRepository;
 use AgenciaS3\Repositories\SegmentRepository;
+use AgenciaS3\Repositories\ServiceRepository;
 use AgenciaS3\Repositories\StoreRepository;
 use AgenciaS3\Services\SEOService;
 
@@ -20,7 +21,7 @@ class HomeController extends Controller
 
     protected $bannerMobileRepository;
 
-    protected $productRepository;
+    protected $serviceRepository;
 
     protected $segmentRepository;
 
@@ -30,14 +31,14 @@ class HomeController extends Controller
 
     public function __construct(BannerRepository $bannerRepository,
                                 BannerMobileRepository $bannerMobileRepository,
-                                ProductRepository $productRepository,
+                                ServiceRepository $serviceRepository,
                                 SegmentRepository $segmentRepository,
                                 PostRepository $postRepository,
                                 SEOService $SEOService)
     {
         $this->bannerRepository = $bannerRepository;
         $this->bannerMobileRepository = $bannerMobileRepository;
-        $this->productRepository = $productRepository;
+        $this->serviceRepository = $serviceRepository;
         $this->segmentRepository = $segmentRepository;
         $this->postRepository = $postRepository;
         $this->SEOService = $SEOService;
@@ -56,7 +57,9 @@ class HomeController extends Controller
         $posts = $this->postRepository->getPostsActive(3);
         //dd($banners);
 
-        return view('site.home.index', compact('seoPage', 'banners', 'segments', 'posts', 'mobile'));
+        $services = $this->serviceRepository->orderBy('order', 'asc')->findByField('active', 'y');
+
+        return view('site.home.index', compact('seoPage', 'banners', 'segments', 'posts', 'mobile', 'services'));
     }
 
 }

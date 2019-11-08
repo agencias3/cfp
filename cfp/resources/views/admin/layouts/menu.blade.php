@@ -46,6 +46,11 @@
                                     O escritório
                                 </a>
                             </li>
+                            <li @if(isset($config['activeMenuN2']) && $config['activeMenuN2'] == 'page-8')class="active"@endif>
+                                <a href="{{ route('admin.configuration.page.edit', 8) }}">
+                                    Galeria
+                                </a>
+                            </li>
                             <li @if(isset($config['activeMenuN2']) && $config['activeMenuN2'] == 'page-3')class="active"@endif>
                                 <a href="{{ route('admin.configuration.page.edit', 3) }}">
                                     Ao harmonizar
@@ -69,6 +74,11 @@
                             <li @if(isset($config['activeMenuN2']) && $config['activeMenuN2'] == 'page-7')class="active"@endif>
                                 <a href="{{ route('admin.configuration.page.edit', 7) }}">
                                     Nossos Valores
+                                </a>
+                            </li>
+                            <li @if(isset($config['activeMenuN2']) && $config['activeMenuN2'] == 'team')class="active"@endif>
+                                <a href="{{ route('admin.team.index') }}">
+                                    Equipe
                                 </a>
                             </li>
                         </ul>

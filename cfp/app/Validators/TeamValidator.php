@@ -19,10 +19,12 @@ class TeamValidator extends LaravelValidator
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
+            'type' => 'required',
             'name' => 'required|max:191',
             'active' => 'required'
         ],
         ValidatorInterface::RULE_UPDATE => [
+            'type' => 'required',
             'name' => 'required|max:191',
             'active' => 'required'
         ],

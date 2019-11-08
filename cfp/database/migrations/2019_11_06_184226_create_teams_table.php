@@ -17,6 +17,7 @@ class CreateTeamsTable extends Migration
 	{
 		Schema::create('teams', function(Blueprint $table) {
             $table->increments('id');
+            $table->enum('type', ['partner', 'associate'])->defaul('partner');
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('office')->nullable();

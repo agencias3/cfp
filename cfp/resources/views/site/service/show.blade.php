@@ -6,14 +6,14 @@
                 <article class="w-100 d_flex justify-center p-top-1024-30 p-bottom-1024-30">
                     <div class="d_flex direction-column">
                         <h1 class="w-100 f-size-55 color-white font-3 f-size-1024-35 t-align-600-c">
-                            Direito Civil e Comercial
+                            {{ $service->name }}
                         </h1>
                     </div>
                 </article>
                 <nav class="w-100 m-top-20 bread-crumbs">
                     <ul class="w-100 d_flex justify-center c-left">
                         <li>
-                            <a href="" title="HOME">
+                            <a href="{{ route('home') }}" title="HOME">
                                 HOME
                             </a>
                         </li>
@@ -21,7 +21,7 @@
                             •
                         </li>
                         <li>
-                            <a href="" title="ÁREAS DE ATUAÇÃO">
+                            <a href="{{ route('service') }}" title="ÁREAS DE ATUAÇÃO">
                                 ÁREAS DE ATUAÇÃO
                             </a>
                         </li>
@@ -33,29 +33,31 @@
     <section class="w-100 bg-white d_flex relative z-index-2 content-page-internal">
         <section class="flex-1">
             <article class="w-90 p-top-80 f-right p-top-1024-30">
+                @if($service->call)
                 <h2 class="w-100 title-segment">
-                    Atuamos fortemente
-                    em litígios de natureza
-                    civil e comercial,
+                    {{ $service->call }}
                 </h2>
+                @endif
                 <div class="w-100 m-top-30 text">
-                    <p>
-                        conduzindo as demandas judiciais em conformidade com o perfil do cliente. O acompanhamento processual é realizado de forma individualizada,
-                        possibilitando a determinação da melhor estratégia a ser utilizada no caso específico. O atendimento pessoalizado é elemento altamente prezado
-                        pelos profissionais, havendo sempre o cuidado com as necessidades inerentes ao segmento de atuação próprio de cada cliente.
-                    </p>
+                    {!! $service->description !!}
                 </div>
             </article>
         </section>
-        <aside class="w-50" style="background: url({{ asset('/uploads/page/segment.jpg') }}) no-repeat;background-position: center center;background-size: cover;"></aside>
+        @if(isPost($service->image))
+        <aside class="w-50" style="background: url({{ asset('uploads/service/'.$service->image) }}) no-repeat;background-position: center center;background-size: cover;"></aside>
+        @Endif
     </section>
+    @if(!$items->isEmpty())
     <section class="w-100 bg-white p-top-80">
         <div class="center">
             <article class="w-100">
+                @if($service->call_items)
                 <span class="w-100 t-upper main-color f-size-16">
-                    Por meio deste mecanismo operacional, o escritório exerce representação nas diversas demandas dos âmbitos civil e comercial, tais como:
+                    {{ $service->call_items }}
                 </span>
+                @endif
                 <ul class="w-100 m-top-10 list-segment list-segment-2">
+                    @foreach($items as $row)
                     <li class="w-100">
                         <div class="w-100">
                             <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
@@ -63,93 +65,20 @@
                                     <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
                                 </figure>
                                 <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
+                                   {{ $row->name }}
                                </span>
                             </a>
                             <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
+                                {!! $row->description !!}
                             </article>
                         </div>
                     </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </article>
         </div>
     </section>
+    @endif
     <section class="w-100 p-top-80 p-bottom-30 bg-white p-top-1024-30">
         <div class="center">
             <div class="w-100 container">

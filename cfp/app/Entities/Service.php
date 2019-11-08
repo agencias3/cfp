@@ -25,7 +25,10 @@ class Service extends Model implements Transformable
      */
     protected $fillable = [
         'name',
+        'call',
+        'call_items',
         'image',
+        'icon',
         'description',
         'order',
         'active',

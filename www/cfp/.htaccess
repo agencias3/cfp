@@ -1,6 +1,6 @@
 Options +FollowSymLinks
 RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule (.*) http://www.agencias3.web2217.uni5.net/cfp/$1 [R=301,L]
+RewriteRule (.*) http://localhost:8000/$1 [R=301,L]
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>

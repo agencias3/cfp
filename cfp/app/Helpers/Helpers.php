@@ -23,6 +23,27 @@ function resume($string, $chars)
     return substr($string, 0, $chars);
 }
 
+function quebraTexto($string, $total)
+{
+    if ($string) {
+        $nString = '';
+        $s = explode(" ", $string);
+        $i = 0;
+        foreach ($s as $r) {
+            $i++;
+            if ($i == $total) {
+                $nString .= "<br />" . $r;
+            } else {
+                $nString .= " " . $r;
+            }
+        }
+
+        return trim($nString);
+    }
+
+    return $string;
+}
+
 function getTypeFreight($code)
 {
     switch ($code) {
