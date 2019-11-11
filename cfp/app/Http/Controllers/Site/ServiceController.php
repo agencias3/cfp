@@ -10,6 +10,7 @@ use AgenciaS3\Repositories\ProductFileRepository;
 use AgenciaS3\Repositories\ProductImageRepository;
 use AgenciaS3\Repositories\ProductRepository;
 use AgenciaS3\Repositories\ProductTextRepository;
+use AgenciaS3\Repositories\SegmentRepository;
 use AgenciaS3\Repositories\ServiceItemRepository;
 use AgenciaS3\Repositories\ServiceRepository;
 use AgenciaS3\Services\SEOService;
@@ -21,14 +22,18 @@ class ServiceController extends Controller
 
     protected $serviceItemRepository;
 
+    protected $segmentRepository;
+
     protected $SEOService;
 
     public function __construct(ServiceRepository $repository,
                                 ServiceItemRepository $serviceItemRepository,
+                                SegmentRepository $segmentRepository,
                                 SEOService $SEOService)
     {
         $this->repository = $repository;
         $this->serviceItemRepository = $serviceItemRepository;
+        $this->segmentRepository = $segmentRepository;
         $this->SEOService = $SEOService;
     }
 
@@ -54,21 +59,16 @@ class ServiceController extends Controller
             }
 
             $seoPage = $this->SEOService->getSeoPageSession(3);
-            /*
-            $this->SEOService->getPageComplement($product, $seoPage['name'], $cover, $cover);
-            $products = $this->categoryRepository->orderBy('order', 'asc')->scopeQuery(function ($query) use ($product) {
-                return $query->where('active', 'y');
-            })->paginate(2);
+            $this->SEOService->getPageComplement($service, $seoPage['name'], $cover, $cover);
 
-            $clients = $this->clientRepository->scopeQuery(function($query) use($product){
-                return $query->leftJoin('product_clients as pc', 'pc.client_id', '=', 'clients.id')
-                    ->select('clients.*')
-                    ->where('pc.product_id', $product->id)
+            $segments = $this->segmentRepository->scopeQuery(function($query) use($service){
+                return $query->leftJoin('service_segments as ss', 'ss.segment_id', '=', 'segments.id')
+                    ->select('segments.*')
+                    ->where('ss.service_id', $service->id)
                     ->where('active', 'y');
             })->all();
-            */
 
-            return view('site.service.show', compact('service', 'seoPage', 'items'));
+            return view('site.service.show', compact('service', 'seoPage', 'items', 'segments'));
         }
 
         return redirect(route('service'), 301);

@@ -18,7 +18,10 @@ class CreateSegmentsTable extends Migration
 		Schema::create('segments', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('call')->nullable();
+            $table->string('call_items')->nullable();
             $table->string('icon')->nullable();
+            $table->string('icon_hover')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->integer('order')->nullable();

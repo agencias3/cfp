@@ -3,6 +3,7 @@
 namespace AgenciaS3\Http\Controllers\Admin\Service;
 
 use AgenciaS3\Criteria\FindByNameCriteria;
+use AgenciaS3\Http\Controllers\Admin\Blog\PostServiceController;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
 use AgenciaS3\Repositories\ServiceRepository;
@@ -21,6 +22,8 @@ class ServiceController extends Controller
 
     protected $serviceItemController;
 
+    protected $postServiceController;
+
     protected $utilObjeto;
 
     protected $path;
@@ -28,11 +31,13 @@ class ServiceController extends Controller
     public function __construct(ServiceRepository $repository,
                                 ServiceValidator $validator,
                                 ServiceItemController $serviceItemController,
+                                PostServiceController $postServiceController,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
         $this->serviceItemController = $serviceItemController;
+        $this->postServiceController = $postServiceController;
         $this->utilObjeto = $utilObjeto;
         $this->path = 'uploads/service/';
     }
@@ -86,6 +91,12 @@ class ServiceController extends Controller
                     $data['icon'] = $image;
                 }
             }
+            if (isset($data['icon_hover'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon_hover', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
+                if ($image) {
+                    $data['icon_hover'] = $image;
+                }
+            }
             $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
@@ -103,6 +114,9 @@ class ServiceController extends Controller
             }
             if (isset($data['icon'])) {
                 $this->utilObjeto->destroyFile($this->path, $data['icon']);
+            }
+            if (isset($data['icon_hover'])) {
+                $this->utilObjeto->destroyFile($this->path, $data['icon_hover']);
             }
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
@@ -131,6 +145,12 @@ class ServiceController extends Controller
                 $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
                 if ($image) {
                     $data['icon'] = $image;
+                }
+            }
+            if (isset($data['icon_hover'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon_hover', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048');
+                if ($image) {
+                    $data['icon_hover'] = $image;
                 }
             }
             $check = $this->repository->find($id);
@@ -175,6 +195,7 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
+        $this->postServiceController->destroyAllService($id);
         $this->serviceItemController->destroyService($id);
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');

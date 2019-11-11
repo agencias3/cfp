@@ -24,7 +24,9 @@ class PostController extends Controller
 
     protected $postTagController;
 
-    protected $segmentRepository;
+    protected $postServiceController;
+
+    protected $postSegmentController;
 
     protected $utilObjeto;
 
@@ -32,14 +34,16 @@ class PostController extends Controller
                                 PostValidator $validator,
                                 PostImageController $postImageController,
                                 PostTagController $postTagController,
-                                SegmentRepository $segmentRepository,
+                                PostServiceController $postServiceController,
+                                PostSegmentController $postSegmentController,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
         $this->postImageController = $postImageController;
         $this->postTagController = $postTagController;
-        $this->segmentRepository = $segmentRepository;
+        $this->postServiceController = $postServiceController;
+        $this->postSegmentController = $postSegmentController;
         $this->utilObjeto = $utilObjeto;
     }
 
@@ -65,9 +69,7 @@ class PostController extends Controller
         $config = $this->header();
         $config['action'] = 'Cadastrar';
 
-        $segments = $this->segmentRepository->orderBy('name', 'asc')->pluck('name', 'id')->prepend('Selecione', '');
-
-        return view('admin.blog.post.create', compact('config', 'segments'));
+        return view('admin.blog.post.create', compact('config'));
     }
 
     public function store(AdminRequest $request)
@@ -100,13 +102,12 @@ class PostController extends Controller
         $dados = $this->repository->find($id);
         $dados['date'] = mysql_to_data($dados->date);
         $dados['date_publish'] = mysql_to_data($dados->date_publish, true);
-        $segments = $this->segmentRepository->orderBy('name', 'asc')->pluck('name', 'id')->prepend('Selecione', '');
 
         $warnings[] = (new KeywordCheckController)->checkDescription($dados->description, 'Descrição', 3);
         $warnings[] = (new KeywordCheckController)->checkDescription($dados->name, 'Nome', 1);
         $warnings[] = (new KeywordCheckController)->checkDescription($dados->seo_link, 'SEO Link', 1);
 
-        return view('admin.blog.post.edit', compact('dados', 'config', 'warnings', 'segments'));
+        return view('admin.blog.post.edit', compact('dados', 'config', 'warnings'));
     }
 
     public function update(AdminRequest $request, $id)
@@ -154,6 +155,8 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        $this->postServiceController->destroyAllPost($id);
+        $this->postSegmentController->destroyAllPost($id);
         $this->postTagController->destroyAllPost($id);
         $this->postImageController->destroyGallery($id);
         $deleted = $this->repository->delete($id);

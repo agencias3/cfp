@@ -48,6 +48,7 @@
                                     </div>
                                 </td>
                                 <td data-title="Ação" class="actions text-center">
+                                    <a href="{{ route('admin.service.segment.index', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Segmentos"><i class="fa fa-list-alt"></i></a>
                                     <a href="{{ route('admin.service.item.index', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Galeria"><i class="fa fa-list-ul"></i></a>
                                     <a href="{{ route('admin.service.edit', ['id' => $row->id]) }}" class="btn btn-default white-hover" title="Itens"><i class="fa el-icon-file-edit"></i></a>
                                     <a href="#modalDestroy" data-route="{{ route('admin.service.destroy', ['id' => $row->id]) }}" class="excluir remove-row btn btn-danger white" title="Excluir">

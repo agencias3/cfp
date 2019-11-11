@@ -6,14 +6,14 @@
                 <article class="w-100 d_flex justify-center">
                     <div class="d_flex direction-column">
                         <h1 class="w-100 f-size-55 color-white font-3 f-size-1024-35">
-                            Nome do Segmento
+                            {{ $segment->name }}
                         </h1>
                     </div>
                 </article>
                 <nav class="w-100 m-top-20 bread-crumbs">
                     <ul class="w-100 d_flex justify-center c-left">
                         <li>
-                            <a href="" title="HOME">
+                            <a href="{{ route('home') }}" title="HOME">
                                 HOME
                             </a>
                         </li>
@@ -21,7 +21,7 @@
                             •
                         </li>
                         <li>
-                            <a href="" title="SEGMENTOS">
+                            <a href="{{ route('segment') }}" title="SEGMENTOS">
                                 SEGMENTOS
                             </a>
                         </li>
@@ -29,8 +29,8 @@
                             •
                         </li>
                         <li>
-                            <a href="" title="LOREM IPSUM DOLLOR">
-                                LOREM IPSUM DOLLOR
+                            <a href="{{ route('segment.show', $segment->seo_link) }}" title="{{ $segment->name }}">
+                                {{ $segment->name }}
                             </a>
                         </li>
                     </ul>
@@ -41,225 +41,29 @@
     <section class="w-100 bg-white d_flex wrap relative z-index-2 content-page-internal p-top-1024-30 p-left-1024-5 p-right-1024-5">
         <section class="flex-1 w-1024-100">
             <article class="w-90 p-top-80 f-right w-1024-100">
+                @if(isPost($segment->call))
                 <h2 class="w-100 title-segment f-size-1024-35 f-size-600-20">
-                    Neque porro quisquam
-                    est qui dolorem ipsum
+                    {!! $segment->call !!}
                 </h2>
+                @endif
                 <div class="w-100 m-top-30 text m-top-1024-20 t-align-1024-c">
-                    <p>
-                        Nullam elementum consequat quam, ut interdum nisl consectetur id. Proin varius ex ut urna iaculis luctus. Maecenas aliquet, sem nec rutrum eleifend,
-                        neque ligula feugiat magna, facilisis condimentum sem lectus ut dui. Fusce feugiat, turpis non auctor luctus, velit lacus lacinia nibh, quis dictum
-                        lectus sem eu ligula. In hac habitasse platea dictumst.
-                    </p>
+                    {!! $segment->description !!}
                 </div>
+                @if(isPost($segment->call_items))
                 <span class="w-100 m-top-50 t-upper l-height-14 main-color f-size-16 m-top-1024-20 t-align-1024-c">
-                    Phasellus dignissim ultricies augue sit amet ullamcorper:
+                    {{ $segment->call_items }}
                 </span>
-                <ul class="w-100 m-top-10 list-segment m-top-1024-0">
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                    <li class="w-100">
-                        <div class="w-100">
-                            <a class="d_flex wrap" onclick="segment($(this))" href="javascript:void(0);" title="">
-                                <figure class="self-center">
-                                    <img class="f-left" src="{{ asset('/assets/site/images/action-list.png') }}" title="LOREM IPSUM DOLOR SIT AMET" alt="LOREM IPSUM DOLOR SIT AMET" />
-                                </figure>
-                                <span class="flex-1 self-center">
-                                   LOREM IPSUM DOLOR SIT AMET
-                               </span>
-                            </a>
-                            <article class="w-100 text">
-                                <p>
-                                    Fusce sed consequat ex. Praesent pellentesque commodo tellus sed dapibus. Nunc arcu augue, varius et efficitur in, porta id lectus. Sed sit
-                                    amet dictum eros, id dapibus neque.
-                                </p>
-                            </article>
-                        </div>
-                    </li>
-                </ul>
+                @endif
+
             </article>
         </section>
-        <aside class="w-50 w-1024-100 h-1024-350-px m-top-1024-30 h-600-250-px" style="background: url({{ asset('/uploads/page/segment.jpg') }}) no-repeat;background-position: center center;background-size: cover;"></aside>
+        @if(isPost($segment->image))
+        <aside class="w-50 w-1024-100 h-1024-350-px m-top-1024-30 h-600-250-px" style="background: url({{ asset('uploads/segment/'.$segment->image) }}) no-repeat;background-position: center center;background-size: cover;"></aside>
+        @endif
     </section>
     <section class="w-100 p-top-80 p-bottom-30 bg-white p-top-1024-30 p-bottom-1024-0">
         <div class="center">
-            <div class="w-100 container">
-                <h3 class="w-100 title-2">
-                    <span>Segmentos Relacionados</span>
-                </h3>
-            </div>
-            <article class="w-100 m-top-30 slider-slick-3 m-top-1024-20">
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-2.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-1.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-3.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-4.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-3.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-3-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-5.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-6.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-1.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-            </article>
+            @include('site.segment.inc.segments')
             <section class="w-100 m-top-80 m-top-1024-30">
                 <h4 class="w-100 container main-color f-size-35 font-3 t-align-1024-c f-size-1024-26">
                     Notícias Relacionadas

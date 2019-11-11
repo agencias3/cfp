@@ -189,6 +189,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
             Route::get('active/{id}', ['as' => 'active', 'uses' => 'ServiceItemController@active']);
             Route::get('destroyFile/{id}/{name}', ['as' => 'destroyFile', 'uses' => 'ServiceItemController@destroyFile']);
         });
+
+        //SEGMENTS
+        Route::group(['prefix' => 'segment', 'as' => 'segment.'], function () {
+            Route::get('{id}', ['as' => 'index', 'uses' => 'ServiceSegmentController@index']);
+            Route::post('store', ['as' => 'store', 'uses' => 'ServiceSegmentController@store']);
+            Route::get('destroy/{id}', ['as' => 'destroy', 'uses' => 'ServiceSegmentController@destroy']);
+        });
     });
 
     //SEGMENTS
@@ -212,6 +219,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
             Route::get('destroy/{id}', ['as' => 'destroy', 'uses' => 'SegmentItemController@destroy']);
             Route::get('active/{id}', ['as' => 'active', 'uses' => 'SegmentItemController@active']);
             Route::get('destroyFile/{id}/{name}', ['as' => 'destroyFile', 'uses' => 'SegmentItemController@destroyFile']);
+        });
+
+        //SERVICES
+        Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+            Route::get('{id}', ['as' => 'index', 'uses' => 'SegmentServiceController@index']);
+            Route::post('store', ['as' => 'store', 'uses' => 'SegmentServiceController@store']);
+            Route::get('destroy/{id}', ['as' => 'destroy', 'uses' => 'SegmentServiceController@destroy']);
         });
     });
 
@@ -493,6 +507,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
                 Route::get('{id}', ['as' => 'index', 'uses' => 'PostServiceController@index']);
                 Route::post('store', ['as' => 'store', 'uses' => 'PostServiceController@store']);
                 Route::get('destroy/{id}', ['as' => 'destroy', 'uses' => 'PostServiceController@destroy']);
+            });
+
+            //SEGMENTS
+            Route::group(['prefix' => 'segment', 'as' => 'segment.'], function () {
+                Route::get('{id}', ['as' => 'index', 'uses' => 'PostSegmentController@index']);
+                Route::post('store', ['as' => 'store', 'uses' => 'PostSegmentController@store']);
+                Route::get('destroy/{id}', ['as' => 'destroy', 'uses' => 'PostSegmentController@destroy']);
             });
 
         });

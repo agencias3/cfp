@@ -1,33 +1,32 @@
-<aside class="overflow-h min-h-100 b-radius-10 w-1024-100 m-top-1024-30">
-    <h6 class="w-100 t-align-c secondary-color-1 f-size-26 font-4">
-        Estamos prontos para te ajudar!
-    </h6>
-    <div class="w-100 m-top-20 l-height-14 t-align-c color-white f-size-14">
-        Preencha os dados que nossa equipe entrará em<br />
-        contato com você.
+{!! Form::open(['route' => 'contact.store', 'class' => $class, 'id' => 'fContact', 'files'=> true]) !!}
+    <fieldset>
+        <label class="f-left bg-white-2" for="contact-name">
+            Insira aqui o seu Nome Completo *
+        </label>
+        <input class="w-100" type="text" id="contact-name" name="name" placeholder="" required />
+    </fieldset>
+    <div class="w-100 d_flex wrap">
+        <fieldset class="flex-1 w-800-100">
+            <label class="f-left bg-white-2" for="contact-email">
+                Insira o seu E-mail *
+            </label>
+            <input class="w-100" type="email" id="contact-email" name="email" placeholder="antoniosc@gmail.com *" required />
+        </fieldset>
+        <fieldset class="flex-1 m-left-15-px w-800-100">
+            <label class="f-left bg-white-2" for="contact-phone">
+                Insira seu Telefone *
+            </label>
+            <input class="w-100 masked-phone" type="text" id="contact-phone" name="phone" placeholder="(99) 9999.9999" required />
+        </fieldset>
     </div>
-    {!! Form::open(['route' => 'contact.store', 'class' => 'w-100 d_flex direction-column form form-2', 'id' => 'fContact']) !!}
-    {!! Form::hidden('language', app()->getLocale(), ['required' => true]) !!}
-    {!! Form::hidden('type', 'cont') !!}
-    <fieldset class="d_flex direction-column">
-        <label for="contact-name">Nome</label>
-        {!! Form::text('name', null, ['id' => 'contact-name', 'required' => true]) !!}
+    <fieldset>
+        <label class="f-left bg-white-2" for="contact-message">
+            Escreva aqui sua Mensagem *
+        </label>
+        <textarea class="w-100" id="contact-message" name="message" placeholder="Lorem ipsum dolor sit amet" required></textarea>
     </fieldset>
-    <fieldset class="d_flex direction-column">
-        <label for="contact-email">E-mail</label>
-        {!! Form::email('email', null, ['id' => 'contact-email', 'required' => true]) !!}
+    <fieldset class="box-submit send-contact">
+        <input class="w-100 pointer smooth" type="submit" id="send-contact" value="ENVIAR" />
     </fieldset>
-    <fieldset class="d_flex direction-column">
-        <label for="contact-phone">Telefone</label>
-        {!! Form::text('phone', null, ['id' => 'contact-phone', 'class' => 'masked-phone', 'required' => true]) !!}
-    </fieldset>
-    <fieldset class="d_flex direction-column">
-        <label for="message-phone">Mensagem</label>
-        {!! Form::textarea('message', null, ['id' => 'contact-message', 'required' => true]) !!}
-    </fieldset>
-    <fieldset class="w-100 t-align-c">
-        <input class="display-inline-block see-more pointer smooth" type="submit" id="send-contact" value="ENVIAR" />
-    </fieldset>
-    <div class="def-msg w-100 display-none m-top-30 f-size-16 t-align-c"></div>
-    {!! Form::close() !!}
-</aside>
+    <span class="def-msg w-100 m-top-30 f-size-16 t-align-c"></span>
+{!! Form::close() !!}

@@ -20,9 +20,11 @@
                             <img src="{{ asset('uploads/service/'.$row->icon) }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
                         </div>
                         @endif
+                        @if(isPost($row->icon_hover))
                         <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                            <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
+                            <img class="self-center" src="{{ asset('uploads/service/'.$row->icon_hover) }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
                         </div>
+                        @endif
                     </figure>
                     <span class="w-100 smooth">
                         {{ $row->name }}

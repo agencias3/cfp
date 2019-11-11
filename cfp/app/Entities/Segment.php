@@ -25,7 +25,10 @@ class Segment extends Model implements Transformable
      */
     protected $fillable = [
         'name',
+        'call',
+        'call_items',
         'icon',
+        'icon_hover',
         'image',
         'description',
         'active',
@@ -48,6 +51,11 @@ class Segment extends Model implements Transformable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function serviceSegments()
+    {
+        return $this->hasMany(ServiceSegment::class);
     }
 
 }

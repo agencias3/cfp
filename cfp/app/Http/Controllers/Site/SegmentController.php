@@ -2,15 +2,11 @@
 
 namespace AgenciaS3\Http\Controllers\Site;
 
-use AgenciaS3\Entities\SeoPage;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\SiteRequest;
-use AgenciaS3\Repositories\ClientRepository;
-use AgenciaS3\Repositories\PostRepository;
-use AgenciaS3\Repositories\ProductRepository;
-use AgenciaS3\Repositories\SegmentImageRepository;
+use AgenciaS3\Repositories\SegmentItemRepository;
 use AgenciaS3\Repositories\SegmentRepository;
-use AgenciaS3\Repositories\StoreRepository;
+use AgenciaS3\Repositories\ServiceRepository;
 use AgenciaS3\Services\SEOService;
 
 class SegmentController extends Controller
@@ -18,34 +14,26 @@ class SegmentController extends Controller
 
     protected $segmentRepository;
 
-    protected $segmentImageRepository;
+    protected $segmentItemRepository;
 
-    protected $clientRepository;
-
-    protected $productRepository;
-
-    protected $postRepository;
+    protected $serviceRepository;
 
     protected $SEOService;
 
     public function __construct(SegmentRepository $segmentRepository,
-                                SegmentImageRepository $segmentImageRepository,
-                                ClientRepository $clientRepository,
-                                ProductRepository $productRepository,
-                                PostRepository $postRepository,
+                                SegmentItemRepository $segmentItemRepository,
+                                ServiceRepository $serviceRepository,
                                 SEOService $SEOService)
     {
         $this->segmentRepository = $segmentRepository;
-        $this->segmentImageRepository = $segmentImageRepository;
-        $this->clientRepository = $clientRepository;
-        $this->productRepository = $productRepository;
-        $this->postRepository = $postRepository;
+        $this->segmentItemRepository = $segmentItemRepository;
+        $this->serviceRepository = $serviceRepository;
         $this->SEOService = $SEOService;
     }
 
     public function index(SiteRequest $request)
     {
-        $seoPage = $this->SEOService->getSeoPageSession(3);
+        $seoPage = $this->SEOService->getSeoPageSession(7);
         $this->SEOService->getPage($seoPage);
 
         $segments = $this->segmentRepository->orderBy('order', 'asc')->findByField('active', 'y');
@@ -62,17 +50,17 @@ class SegmentController extends Controller
     {
         $segment = $this->segmentRepository->findWhere(['active' => 'y', 'seo_link' => $seo_link])->first();
         if ($segment) {
-            $images = $this->segmentImageRepository->orderBy('order', 'asc')->findByField('segment_id', $segment->id);
+            $items = $this->segmentItemRepository->orderBy('order', 'asc')->findWhere(['segment_id' => $segment->id, 'active' => 'y']);
 
             $cover = null;
-            $image = $images->firstWhere('cover', 'y');
-            if (isPost($image)) {
-                $cover = asset('uploads/segment/' . $image->image);
+            if (isPost($segment->image)) {
+                $cover = asset('uploads/segment/' . $segment->image);
             }
 
-            $seoPage = $this->SEOService->getSeoPageSession(3);
+            $seoPage = $this->SEOService->getSeoPageSession(7);
             $this->SEOService->getPageComplement($segment, $seoPage['name'], $cover, $cover);
 
+            /*
             $clients = $this->clientRepository->scopeQuery(function($query) use($segment){
                 return $query->leftJoin('segment_clients as sc', 'sc.client_id', '=', 'clients.id')
                     ->select('clients.*')
@@ -88,8 +76,15 @@ class SegmentController extends Controller
             })->all();
 
             $posts = $this->postRepository->getPostsSegment($segment->id, 3);
+            */
+            $services = $this->serviceRepository->scopeQuery(function($query) use($segment){
+                return $query->leftJoin('service_segments as ss', 'ss.service_id', '=', 'services.id')
+                    ->select('services.*')
+                    ->where('ss.segment_id', $segment->id)
+                    ->where('active', 'y');
+            })->all();
 
-            return view('site.segment.show', compact('segment', 'seoPage', 'images', 'clients', 'products', 'posts'));
+            return view('site.segment.show', compact('segment', 'seoPage', 'items', 'services'));
         }
 
         return redirect(route('segment'), 301);

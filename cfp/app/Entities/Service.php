@@ -29,6 +29,7 @@ class Service extends Model implements Transformable
         'call_items',
         'image',
         'icon',
+        'icon_hover',
         'description',
         'order',
         'active',
@@ -45,6 +46,11 @@ class Service extends Model implements Transformable
     public function contacts()
     {
         return $this->hasMany(ServiceContact::class);
+    }
+
+    public function serviceSegments()
+    {
+        return $this->hasMany(ServiceSegment::class);
     }
 
 }

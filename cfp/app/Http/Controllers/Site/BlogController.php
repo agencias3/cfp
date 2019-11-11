@@ -7,7 +7,9 @@ use AgenciaS3\Http\Requests\SiteRequest;
 use AgenciaS3\Repositories\PostImageRepository;
 use AgenciaS3\Repositories\PostRepository;
 use AgenciaS3\Repositories\PostTagRepository;
+use AgenciaS3\Repositories\SegmentRepository;
 use AgenciaS3\Repositories\SeoPageRepository;
+use AgenciaS3\Repositories\ServiceRepository;
 use AgenciaS3\Repositories\TagRepository;
 use AgenciaS3\Services\SEOService;
 use AgenciaS3\Services\UtilObjeto;
@@ -22,6 +24,10 @@ class BlogController extends Controller
 
     protected $tagRepository;
 
+    protected $segmentRepository;
+
+    protected $serviceRepository;
+
     protected $postImageRepository;
 
     protected $SEOService;
@@ -32,6 +38,8 @@ class BlogController extends Controller
                                 PostImageRepository $postImageRepository,
                                 PostTagRepository $postTagRepository,
                                 TagRepository $tagRepository,
+                                SegmentRepository $segmentRepository,
+                                ServiceRepository $serviceRepository,
                                 SeoPageRepository $seoPageRepository,
                                 SEOService $SEOService,
                                 UtilObjeto $utilObjeto)
@@ -40,6 +48,8 @@ class BlogController extends Controller
         $this->postImageRepository = $postImageRepository;
         $this->postTagRepository = $postTagRepository;
         $this->tagRepository = $tagRepository;
+        $this->segmentRepository = $segmentRepository;
+        $this->serviceRepository = $serviceRepository;
         $this->seoPageRepository = $seoPageRepository;
         $this->SEOService = $SEOService;
         $this->utilObjeto = $utilObjeto;
@@ -50,13 +60,15 @@ class BlogController extends Controller
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $search = $request->get('search');
 
-        $seoPage = $this->SEOService->getSeoPageSession(5);
+        $seoPage = $this->SEOService->getSeoPageSession(4);
         $this->SEOService->getPage($seoPage);
 
         $posts = $this->repository->getPostsActive(6);
         $tags = $this->tagRepository->orderBy('name', 'asc')->findByField('active', 'y');
+        $services = $this->serviceRepository->orderBy('name', 'asc')->findByField('active', 'y');
+        $segments = $this->segmentRepository->orderBy('name', 'asc')->findByField('active', 'y');
 
-        return view('site.blog.index', compact('posts', 'tags', 'search', 'seoPage'));
+        return view('site.blog.index', compact('posts', 'tags', 'search', 'seoPage', 'services', 'segments'));
     }
 
     public function tag(SiteRequest $request, $seo_link)
@@ -66,13 +78,57 @@ class BlogController extends Controller
 
         $tag = $this->tagRepository->findWhere(['active' => 'y', 'seo_link' => $seo_link])->first();
         if ($tag) {
-            $seoPage = $this->SEOService->getSeoPageSession(5);
+            $seoPage = $this->SEOService->getSeoPageSession(4);
             $this->SEOService->getPageComplement($tag, 'Blog');
 
             $posts = $this->repository->getPostsTag($tag, 6);
             $tags = $this->tagRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $services = $this->serviceRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $segments = $this->segmentRepository->orderBy('name', 'asc')->findByField('active', 'y');
 
-            return view('site.blog.index', compact('tag', 'tags', 'posts', 'search', 'seoPage'));
+            return view('site.blog.index', compact('tag', 'tags', 'posts', 'search', 'seoPage', 'services', 'segments'));
+        }
+
+        return redirect(route('blog'), 301);
+    }
+
+    public function service(SiteRequest $request, $seo_link)
+    {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $search = $request->get('search');
+
+        $service = $this->serviceRepository->findWhere(['active' => 'y', 'seo_link' => $seo_link])->first();
+        if ($service) {
+            $seoPage = $this->SEOService->getSeoPageSession(4);
+            $this->SEOService->getPageComplement($service, 'Blog');
+
+            $posts = $this->repository->getPostsService($service, 6);
+            $tags = $this->tagRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $services = $this->serviceRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $segments = $this->segmentRepository->orderBy('name', 'asc')->findByField('active', 'y');
+
+            return view('site.blog.index', compact('service', 'tags', 'posts', 'search', 'seoPage', 'services', 'segments'));
+        }
+
+        return redirect(route('blog'), 301);
+    }
+
+    public function segment(SiteRequest $request, $seo_link)
+    {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $search = $request->get('search');
+
+        $segment = $this->segmentRepository->findWhere(['active' => 'y', 'seo_link' => $seo_link])->first();
+        if ($segment) {
+            $seoPage = $this->SEOService->getSeoPageSession(4);
+            $this->SEOService->getPageComplement($segment, 'Blog');
+
+            $posts = $this->repository->getPostsSegment($segment, 6);
+            $tags = $this->tagRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $services = $this->serviceRepository->orderBy('name', 'asc')->findByField('active', 'y');
+            $segments = $this->segmentRepository->orderBy('name', 'asc')->findByField('active', 'y');
+
+            return view('site.blog.index', compact('segment', 'tags', 'posts', 'search', 'seoPage', 'services', 'segments'));
         }
 
         return redirect(route('blog'), 301);
@@ -84,7 +140,7 @@ class BlogController extends Controller
 
         $post = $this->repository->findWhere(['active' => 'y', 'seo_link' => $seo_link])->first();
         if ($post) {
-            $seoPage = $this->SEOService->getSeoPageSession(5);
+            $seoPage = $this->SEOService->getSeoPageSession(4);
             $images = $this->postImageRepository->orderBy('order', 'asc')->findWhere(['post_id' => $post->id]);
             $postTags = $this->postTagRepository->with('tag')
                 ->scopeQuery(function ($query) use ($post) {

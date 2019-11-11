@@ -45,9 +45,14 @@ class Post extends Model implements Transformable
         return $this->hasMany(PostTag::class);
     }
 
-    public function segment()
+    public function postSegments()
     {
-        return $this->belongsTo(Segment::class, 'segment_id');
+        return $this->hasMany(PostSegment::class);
+    }
+
+    public function postServices()
+    {
+        return $this->hasMany(PostService::class);
     }
 
 

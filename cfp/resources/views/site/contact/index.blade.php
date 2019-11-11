@@ -35,26 +35,26 @@
                         o formulário abaixo por completo
                     </h2>
                     <section class="w-100">
-                        <form class="w-100 bg-white-2 d_flex direction-column form form-internal" id="fContact" method="get" action="">
+                        {!! Form::open(['route' => 'contact.store', 'class' => 'w-100 bg-white-2 d_flex direction-column form form-internal', 'id' => 'fContact', 'files'=> true]) !!}
                             <article class="w-100 d_flex wrap">
                                 <section class="flex-1 w-800-100">
                                     <fieldset>
                                         <label class="f-left bg-white-2" for="contact-name">
-                                            Insira aqui o seu Nome Completo
+                                            Insira aqui o seu Nome Completo *
                                         </label>
-                                        <input class="w-100" type="text" id="contact-name" value="" placeholder="" />
+                                        <input class="w-100" type="text" id="contact-name" name="name" placeholder="" required />
                                     </fieldset>
                                     <fieldset>
                                         <label class="f-left bg-white-2" for="contact-email">
-                                            Insira o seu E-mail
+                                            Insira o seu E-mail *
                                         </label>
-                                        <input class="w-100" type="email" id="contact-email" value="" placeholder="antoniosc@gmail.com" />
+                                        <input class="w-100" type="email" id="contact-email" name="email" placeholder="antoniosc@gmail.com" required />
                                     </fieldset>
                                     <fieldset>
                                         <label class="f-left bg-white-2" for="contact-phone">
-                                            Insira seu Telefone
+                                            Insira seu Telefone *
                                         </label>
-                                        <input class="w-100 masked-phone" type="text" id="contact-phone" value="" placeholder="(51) 3222.3012" />
+                                        <input class="w-100 masked-phone" type="text" id="contact-phone" name="phone" placeholder="(51) 3222.3012" required />
                                     </fieldset>
                                 </section>
                                 <aside class="flex-1 w-800-100">
@@ -62,20 +62,21 @@
                                         <label class="f-left bg-white-2" for="contact-subject">
                                             Insira aqui o Assunto
                                         </label>
-                                        <input class="w-100" type="text" id="contact-subject" value="" placeholder="Dúvidas sobre Contratos" />
+                                        <input class="w-100" type="text" id="contact-subject" name="subject" placeholder="Dúvidas sobre Contratos" />
                                     </fieldset>
                                     <fieldset>
                                         <label class="f-left bg-white-2" for="contact-message">
-                                            Escreva aqui sua Mensagem
+                                            Escreva aqui sua Mensagem *
                                         </label>
-                                        <textarea class="w-100" id="contact-message" placeholder="Lorem ipsum dolor sit amet"></textarea>
+                                        <textarea class="w-100" id="contact-message" name="message" placeholder="Lorem ipsum dolor sit amet" required></textarea>
                                     </fieldset>
-                                    <fieldset class="box-submit w-600-100">
+                                    <fieldset class="box-submit w-600-100 send-contact">
                                         <input class="w-100 pointer smooth" type="submit" id="send-contact" value="ENVIAR" />
                                     </fieldset>
                                 </aside>
                             </article>
-                        </form>
+                            <span class="def-msg w-100 m-top-30 f-size-16 t-align-c"></span>
+                        {!! Form::close() !!}
                     </section>
                 </section>
             </article>
@@ -89,16 +90,24 @@
                 </h3>
                 <div class="w-100 m-top-30 t-align-r main-color text m-top-1024-20 t-align-1024-c">
                     <p>
-                        Av. Borges de Medeiros, 2233 / 602<br />
-                        Condomínio Edifício Borges<br />
-                        Porto Alegre • RS • CEP 90110-910<br />
-                        Fone: [51] 3212.2233
+                        {!! nl2br(session()->get('configuration')[9]['description']) !!}<br />
+                        @if(session()->get('configuration')[6]['description'])
+                        Fone: {!! nl2br(session()->get('configuration')[6]['description']) !!}
+                        @endif
                     </p>
                 </div>
             </article>
         </section>
+        @if(session()->get('configuration')[8]['description'])
         <aside class="w-50 min-h-100 w-1024-100 h-1024-350-px h-600-250-px">
+            <?php
+            $map = str_replace('<iframe src=', '<iframe src=', session()->get('configuration')[8]['description']);
+            ?>
+            {!! $map !!}
+            <!--
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.760236132119!2d-51.19081598427849!3d-30.043735738205317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197823229c28a5%3A0x6cf8e8f4472c08c!2sRua%20V%C3%ADtor%20Hugo%2C%2037%20-%20Petr%C3%B3polis%2C%20Porto%20Alegre%20-%20RS%2C%2090630-070!5e0!3m2!1spt-BR!2sbr!4v1571401437670!5m2!1spt-BR!2sbr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            -->
         </aside>
+        @endif
     </section>
 @endsection

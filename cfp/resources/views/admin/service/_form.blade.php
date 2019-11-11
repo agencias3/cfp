@@ -18,17 +18,24 @@
         'name' => 'icon',
         'path' => 'service',
         'merge' => true,
-        'route_destroy' => route('admin.service.destroyFile', ['id' => isset($dados->id) ? $dados->id : null, 'name' => 'file'])
+        'route_destroy' => route('admin.service.destroyFile', ['id' => isset($dados->id) ? $dados->id : null, 'name' => 'icon'])
     ])
     @include('admin.layouts.forms._image',[
-        'label' => 'Imagem',
-        'size' => '1920px x 380px',
-        'name' => 'image',
+        'label' => 'Ícone Hover',
+        'size' => '74px x 63px',
+        'name' => 'icon_hover',
         'path' => 'service',
         'merge' => true,
-        'route_destroy' => route('admin.service.destroyFile', ['id' => isset($dados->id) ? $dados->id : null, 'name' => 'file'])
+        'route_destroy' => route('admin.service.destroyFile', ['id' => isset($dados->id) ? $dados->id : null, 'name' => 'icon_hover'])
     ])
 </div>
+@include('admin.layouts.forms._image',[
+    'label' => 'Imagem',
+    'size' => '1920px x 380px',
+    'name' => 'image',
+    'path' => 'service',
+    'route_destroy' => route('admin.service.destroyFile', ['id' => isset($dados->id) ? $dados->id : null, 'name' => 'image'])
+])
 @include('admin.layouts.forms._active_order')
 @include('admin.layouts.forms._seo_keywords_description')
 @include('admin.layouts.forms._seo_link')

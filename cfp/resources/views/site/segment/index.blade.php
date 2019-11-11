@@ -19,186 +19,40 @@
     <section class="w-100 p-top-20 p-bottom-80 bg-white relative z-index-2 p-bottom-1024-30">
         <div class="center">
             <article class="w-100 d_flex wrap justify-center list-group-blog">
+                @if($segments->isEmpty())
+                    <div class="w-100 m-top-30 m-bottom-30 t-align-c f-size-20">
+                        Nenhum registro encontrado!
+                    </div>
+                @else
+                    @foreach($segments as $row)
                 <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
+                    <a class="w-100 h-100 d_flex direction-column" href="{{ route('segment.show', $row->seo_link) }}" title="{{ $row->name }}">
+                        @if(isPost($row->image))
                         <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-2.jpg') }}" title="" alt="" />
+                            <img class="w-100 smooth" src="{{ asset('uploads/segment/'.$row->image) }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
                         </figure>
+                        @endif
                         <article class="w-100">
                             <figure class="w-100 d_flex justify-center relative">
+                                @if(isPost($row->icon))
                                 <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-1.png') }}" title="" alt="" />
+                                    <img src="{{ asset('uploads/segment/'.$row->icon) }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
                                 </div>
+                                @endif
+                                @if(isPost($row->icon_hover))
                                 <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="" alt="" />
+                                    <img class="self-center" src="{{ asset('uploads/segment/'.$row->icon_hover) }}" title="{{ $row->name }}" alt="{{ $row->name }}" />
                                 </div>
+                                @endif
                             </figure>
                             <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
+                                {{ $row->name }}
                             </span>
                         </article>
                     </a>
                 </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-3.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-4.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-3.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-3-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-5.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-6.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-1.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-4.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-3.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-3-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-5.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-6.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-1.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-1-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
-                <div class="d_flex direction-column item">
-                    <a class="w-100 h-100 d_flex direction-column" href="" title="">
-                        <figure class="w-100">
-                            <img class="w-100 smooth" src="{{ asset('/uploads/page/acting-5.jpg') }}" title="" alt="" />
-                        </figure>
-                        <article class="w-100">
-                            <figure class="w-100 d_flex justify-center relative">
-                                <div class="self-center smooth">
-                                    <img src="{{ asset('/uploads/page/icon-acting-2.png') }}" title="" alt="" />
-                                </div>
-                                <div class="self-center w-100 h-100 d_flex justify-center absolute top-0 left-0 opacity-0 smooth">
-                                    <img class="self-center" src="{{ asset('/uploads/page/icon-acting-2-hover.png') }}" title="" alt="" />
-                                </div>
-                            </figure>
-                            <span class="w-100 smooth">
-                                DIREITO CIVIL E COMERCIAL
-                            </span>
-                        </article>
-                    </a>
-                </div>
+                    @endforeach
+                @endif
             </article>
         </div>
     </section>

@@ -3,6 +3,7 @@
 namespace AgenciaS3\Http\Controllers\Admin\Segment;
 
 use AgenciaS3\Criteria\FindByNameCriteria;
+use AgenciaS3\Http\Controllers\Admin\Blog\PostSegmentController;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
 use AgenciaS3\Repositories\SegmentRepository;
@@ -21,6 +22,8 @@ class SegmentController extends Controller
 
     protected $segmentItemController;
 
+    protected $postSegmentController;
+
     protected $utilObjeto;
 
     protected $path;
@@ -28,11 +31,13 @@ class SegmentController extends Controller
     public function __construct(SegmentRepository $repository,
                                 SegmentValidator $validator,
                                 SegmentItemController $segmentItemController,
+                                PostSegmentController $postSegmentController,
                                 UtilObjeto $utilObjeto)
     {
         $this->repository = $repository;
         $this->validator = $validator;
         $this->segmentItemController = $segmentItemController;
+        $this->postSegmentController = $postSegmentController;
         $this->utilObjeto = $utilObjeto;
         $this->path = 'uploads/segment/';
     }
@@ -86,6 +91,12 @@ class SegmentController extends Controller
                     $data['icon'] = $image;
                 }
             }
+            if (isset($data['icon_hover'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon_hover', 'max:2048');
+                if ($image) {
+                    $data['icon_hover'] = $image;
+                }
+            }
             $data['seo_link'] = $this->utilObjeto->nameUrl($data['name']);
 
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
@@ -103,6 +114,9 @@ class SegmentController extends Controller
             }
             if (isset($data['icon'])) {
                 $this->utilObjeto->destroyFile($this->path, $data['icon']);
+            }
+            if (isset($data['icon_hover'])) {
+                $this->utilObjeto->destroyFile($this->path, $data['icon_hover']);
             }
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
@@ -131,6 +145,12 @@ class SegmentController extends Controller
                 $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon', 'max:2048');
                 if ($image) {
                     $data['icon'] = $image;
+                }
+            }
+            if (isset($data['icon_hover'])) {
+                $image = $this->utilObjeto->uploadFile($request, $data, $this->path, 'icon_hover', 'max:2048');
+                if ($image) {
+                    $data['icon_hover'] = $image;
                 }
             }
             $check = $this->repository->find($id);
@@ -175,6 +195,7 @@ class SegmentController extends Controller
 
     public function destroy($id)
     {
+        $this->postSegmentController->destroyAllSegment($id);
         $this->segmentItemController->destroySegment($id);
         $deleted = $this->repository->delete($id);
         return redirect()->back()->with('success', 'Registro removido com sucesso!');

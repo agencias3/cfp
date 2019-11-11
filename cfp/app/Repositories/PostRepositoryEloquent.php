@@ -53,17 +53,20 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository, C
             })->paginate($limit);
     }
 
-    public function getPostsSegment($segment_id, $limit)
+    public function getPostsSegment($segment, $limit)
     {
         return $this->with('images')
-            ->scopeQuery(function ($query) use ($segment_id) {
-                $query = $query->where('active', '=', 'y')
-                    ->where('segment_id', $segment_id)
+            ->scopeQuery(function ($query) use ($segment) {
+                $query = $query->leftjoin('post_segments as ps', 'ps.post_id', '=', 'posts.id')
+                    ->select('posts.*')
+                    ->where('ps.segment_id', '=', $segment->id)
+                    ->where('active', '=', 'y')
                     ->where('date_publish', '<=', Carbon::now())
                     ->orderBy('date', 'desc');
                 return $query;
             })->paginate($limit);
     }
+
 
     public function getPostsService($service, $limit)
     {

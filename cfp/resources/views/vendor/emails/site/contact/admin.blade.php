@@ -86,6 +86,7 @@ $style = [
                                         Nome: {{ $data->name }}<br />
                                         Telefone: {{ $data->phone }}<br />
                                         E-mail: {{ $data->email }}<br />
+                                        Assunto: {{ $data->subject }}<br />
                                         Mensagem: {{ $data->message }}<br /><br />
                                         Data recebido {{ date('d/m/Y h:i', strtotime($data->created_at)) }}
                                     </p>

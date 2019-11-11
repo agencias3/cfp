@@ -74,6 +74,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a  @if($ativo == 'segmento' || $ativo == 'segmento/{seo_link}') class="active" @endif href="{{ route('segment') }}" title="Segmentos">
+                                    Segmentos
+                                </a>
+                            </li>
+                            <li>
                                 <a  @if($ativo == 'noticias' || $ativo == 'noticias/tag/{tag}' || $ativo == 'noticias/{seo_link}') class="active" @endif href="" title="Notícias  e Artigos">
                                     Notícias  e Artigos
                                 </a>

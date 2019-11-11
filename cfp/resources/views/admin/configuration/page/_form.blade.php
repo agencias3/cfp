@@ -19,7 +19,7 @@
             'route_destroy_2' => route('admin.configuration.page.destroyFile', ['id' => $dados->id, 'name' => 'video_ogg'])
         ])
     @endif
-    @if($dados->id != 9 && $dados->id != 10 &&
+    @if($dados->id != 10 &&
     $dados->id != 7 && $dados->id != 8)
         @include('admin.layouts.forms._description')
     @endif

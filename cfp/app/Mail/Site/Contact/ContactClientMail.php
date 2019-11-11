@@ -26,7 +26,7 @@ class ContactClientMail extends Mailable
         }
 
         if (isset($this->form->from)) {
-            $email = $this->from(env('MAIL_FROM_ADDRESS'), isPost($this->form->from) ? $this->form->from : env('MAIL_FROM_NAME'));
+            //$email = $this->from(env('MAIL_FROM_ADDRESS'), isPost($this->form->from) ? $this->form->from : env('MAIL_FROM_NAME'));
         }
 
         if (isset($this->form->reply_to)) {

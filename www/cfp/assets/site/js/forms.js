@@ -14,7 +14,7 @@ function contact() {
             contentType: false,
             cache: false,
             processData: false,
-            url: "/contato/store",
+            url: "/cfp/contato/store",
             beforeSend: function () {
                 $('#fContact .def-msg').removeClass('display-none').html("<strong class='color-orange f-w-600'>Enviando...</strong>");
             },
@@ -38,13 +38,14 @@ function contact() {
             }
         });
         return false;
+
     });
 }
 
 function newsletter() {
-    $("#fNewsletter").submit(function () {
-        $('#fNewsletter .def-msg').fadeIn();
-        $('#fNewsletter .send-contact').hide();
+    $(".fNewsletter").submit(function () {
+        $('.fNewsletter .def-msg').fadeIn();
+        $('.fNewsletter .send-contact').hide();
 
         $.ajax({
             type: "POST",
@@ -54,11 +55,11 @@ function newsletter() {
             processData: false,
             url: "/cfp/newsletter/store",
             beforeSend: function () {
-                $('#fNewsletter .def-msg').removeClass('display-none').html("<strong class='color-orange f-w-600'>Enviando...</strong>");
+                $('.fNewsletter .def-msg').removeClass('display-none').html("<strong class='color-orange f-w-600'>Enviando...</strong>");
             },
             success: function (result) {
                 if (result.success) {
-                    $('#fNewsletter .def-msg').html("<strong class='color-green f-w-600'>" + result.message + "</strong>");
+                    $('.fNewsletter .def-msg').html("<strong class='color-green f-w-600'>" + result.message + "</strong>");
                     $('input[type=text],input[type=email], textarea, select').val('');
                 } else {
 
@@ -69,10 +70,10 @@ function newsletter() {
                             msgError = msgError + value + '<br />';
                         }
                     });
-                    $('#fNewsletter .def-msg').html("<strong class='color-red f-w-600'>" + msgError + "</strong>");
+                    $('.fNewsletter .def-msg').html("<strong class='color-white f-w-600'>" + msgError + "</strong>");
                 }
 
-                $('#fNewsletter .send-contact').fadeIn();
+                $('.fNewsletter .send-contact').fadeIn();
             }
         });
         return false;

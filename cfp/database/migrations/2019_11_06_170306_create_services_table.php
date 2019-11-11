@@ -22,6 +22,7 @@ class CreateServicesTable extends Migration
             $table->string('call')->nullable();
             $table->string('call_items')->nullable();
             $table->string('icon')->nullable();
+            $table->string('icon_hover')->nullable();
             $table->text('description')->nullable();
             $table->integer('order')->nullable();
             $table->enum('active', ['y', 'n'])->default('n');

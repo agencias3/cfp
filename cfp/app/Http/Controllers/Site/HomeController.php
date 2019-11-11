@@ -54,7 +54,7 @@ class HomeController extends Controller
         $segments = $this->segmentRepository->orderBy('order', 'asc')->scopeQuery(function($query){
             return $query->where('active', 'y');
         })->paginate(2);
-        $posts = $this->postRepository->getPostsActive(3);
+        $posts = $this->postRepository->getPostsActive(2);
         //dd($banners);
 
         $services = $this->serviceRepository->orderBy('order', 'asc')->findByField('active', 'y');
