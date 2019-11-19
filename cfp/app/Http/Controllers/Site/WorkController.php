@@ -6,10 +6,9 @@ use AgenciaS3\Entities\Form;
 use AgenciaS3\Entities\SeoPage;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\SiteRequest;
-use AgenciaS3\Mail\Site\Contact\PartnerClientMail;
-use AgenciaS3\Mail\Site\Contact\PartnerMail;
 use AgenciaS3\Mail\Site\Work\WorkClientMail;
 use AgenciaS3\Mail\Site\Work\WorkMail;
+use AgenciaS3\Repositories\VacancyRepository;
 use AgenciaS3\Repositories\WorkRepository;
 use AgenciaS3\Services\SEOService;
 use AgenciaS3\Services\UtilObjeto;
@@ -25,22 +24,28 @@ class WorkController extends Controller
 
     protected $validator;
 
+    protected $vacancyRepository;
+
     protected $path;
 
     public function __construct(WorkRepository $repository,
-                                WorkValidator $validator)
+                                WorkValidator $validator,
+                                VacancyRepository $vacancyRepository)
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->vacancyRepository = $vacancyRepository;
         $this->path = 'uploads/work/';
     }
 
     public function index(SiteRequest $request)
     {
-        $seoPage = SeoPage::find(7);
+        $seoPage = SeoPage::find(5);
         (new SEOService)->getPage($seoPage);
 
-        return view('site.work.index');
+        $vacancies = $this->vacancyRepository->orderBy('order', 'asc')->findByField('active', 'y');
+
+        return view('site.work.index', compact('vacancies'));
     }
 
     public function store(SiteRequest $request)
@@ -78,7 +83,7 @@ class WorkController extends Controller
 
     public function sendMail($dados)
     {
-        $form = Form::with('emails')->find(2);
+        $form = Form::with('emails')->find(3);
 
         //email admin
         if ($form->emails) {

@@ -16,7 +16,7 @@ class ServiceContact extends Model implements Transformable
 {
     use TransformableTrait, SoftDeletes;
 
-    protected $dates = 'deleted_at';
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -26,9 +26,8 @@ class ServiceContact extends Model implements Transformable
     protected $fillable = [
         'service_id',
         'name',
-        'email',
         'phone',
-        'subject',
+        'email',
         'message',
         'view',
         'session_id',

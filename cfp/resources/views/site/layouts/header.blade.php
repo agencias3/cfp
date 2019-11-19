@@ -74,12 +74,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a  @if($ativo == 'segmento' || $ativo == 'segmento/{seo_link}') class="active" @endif href="{{ route('segment') }}" title="Segmentos">
+                                <a  @if($ativo == 'segmentos' || $ativo == 'segmentos/{seo_link}') class="active" @endif href="{{ route('segment') }}" title="Segmentos">
                                     Segmentos
                                 </a>
                             </li>
                             <li>
-                                <a  @if($ativo == 'noticias' || $ativo == 'noticias/tag/{tag}' || $ativo == 'noticias/{seo_link}') class="active" @endif href="" title="Notícias  e Artigos">
+                                <a  @if($ativo == 'noticias' || $ativo == 'noticias/tag/{tag}' || $ativo == 'noticias/segmento/{segment}' || $ativo == 'noticias/area-expertise/{service}' || $ativo == 'noticias/{seo_link}') class="active" @endif href="{{ route('blog') }}" title="Notícias  e Artigos">
                                     Notícias  e Artigos
                                 </a>
                             </li>

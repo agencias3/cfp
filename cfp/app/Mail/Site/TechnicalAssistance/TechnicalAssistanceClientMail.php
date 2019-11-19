@@ -26,7 +26,7 @@ class TechnicalAssistanceClientMail extends Mailable
         }
 
         if (isset($this->form->from)) {
-            $email = $this->from(env('MAIL_FROM_ADDRESS'), isPost($this->form->from) ? $this->form->from : env('MAIL_FROM_NAME'));
+            $email = $this->from(config('mail.from.address'), isset($this->form->from) ? $this->form->from : config('mail.from.name'));
         }
 
         if (isset($this->form->reply_to)) {

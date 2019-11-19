@@ -94,6 +94,14 @@ class PageController extends Controller
             $config['activeMenu'] = "tip";
         }
 
+        if ($id == 9) {
+            $config['activeMenu'] = "awards";
+        }
+
+        if ($id == 10 || $id == 11) {
+            $config['activeMenu'] = "work";
+        }
+
         $imageSize = 'xx X xx';
         if ($id == 1) {
             $imageSize = '470px X 370px';

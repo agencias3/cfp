@@ -83,18 +83,18 @@
                         <div class="widget-summary">
                             <div class="widget-summary-col widget-summary-col-icon">
                                 <div class="summary-icon bg-success">
-                                    <i class="fa fa-question"></i>
+                                    <i class="fa fa-trophy"></i>
                                 </div>
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
                                     <h4 class="title"></h4>
                                     <div class="info">
-                                        <strong class="amount">Você Sabia?</strong>
+                                        <strong class="amount">Premiações</strong>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('admin.tip.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
+                                    <a href="{{ route('admin.configuration.page.edit', 9) }}" class="text-muted text-uppercase">(Visualizar)</a>
                                 </div>
                             </div>
                         </div>
@@ -107,18 +107,18 @@
                         <div class="widget-summary">
                             <div class="widget-summary-col widget-summary-col-icon">
                                 <div class="summary-icon bg-warning">
-                                    <i class="fa fa fa-users"></i>
+                                    <i class="fa fa-list-ol"></i>
                                 </div>
                             </div>
                             <div class="widget-summary-col">
                                 <div class="summary">
                                     <h4 class="title"></h4>
                                     <div class="info">
-                                        <strong class="amount">Clientes</strong>
+                                        <strong class="amount">Áreas de Expertise</strong>
                                     </div>
                                 </div>
                                 <div class="summary-footer">
-                                    <a href="{{ route('admin.client.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
+                                    <a href="{{ route('admin.service.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
                                 </div>
                             </div>
                         </div>
@@ -143,54 +143,6 @@
                                 </div>
                                 <div class="summary-footer">
                                     <a href="{{ route('admin.segment.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-12 col-lg-4 col-xl-3">
-                <section class="panel panel-featured-left panel-featured-info">
-                    <div class="panel-body">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col widget-summary-col-icon">
-                                <div class="summary-icon bg-info">
-                                    <i class="fa fa-mobile-phone"></i>
-                                </div>
-                            </div>
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title"></h4>
-                                    <div class="info">
-                                        <strong class="amount">Produtos</strong>
-                                    </div>
-                                </div>
-                                <div class="summary-footer">
-                                    <a href="{{ route('admin.category.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-12 col-lg-4 col-xl-3">
-                <section class="panel panel-featured-left panel-featured-info">
-                    <div class="panel-body">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col widget-summary-col-icon">
-                                <div class="summary-icon bg-info">
-                                    <i class="fa fa-mobile-phone"></i>
-                                </div>
-                            </div>
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title"></h4>
-                                    <div class="info">
-                                        <strong class="amount">Módulos</strong>
-                                    </div>
-                                </div>
-                                <div class="summary-footer">
-                                    <a href="{{ route('admin.product.index') }}" class="text-muted text-uppercase">(Visualizar)</a>
                                 </div>
                             </div>
                         </div>

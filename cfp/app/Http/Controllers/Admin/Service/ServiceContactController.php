@@ -3,12 +3,9 @@
 namespace AgenciaS3\Http\Controllers\Admin\Service;
 
 use AgenciaS3\Criteria\FindByFromToCreatedAtCriteria;
-use AgenciaS3\Entities\Contact;
 use AgenciaS3\Http\Controllers\Controller;
 use AgenciaS3\Http\Requests\AdminRequest;
-use AgenciaS3\Repositories\ContactRepository;
 use AgenciaS3\Repositories\ServiceContactRepository;
-use AgenciaS3\Validators\ContactValidator;
 use AgenciaS3\Validators\ServiceContactValidator;
 use Illuminate\Http\Request;
 use Prettus\Validator\Contracts\ValidatorInterface;
@@ -29,7 +26,7 @@ class ServiceContactController extends Controller
         $this->validator = $validator;
     }
 
-    public function index(Request $request)
+    public function index(AdminRequest $request, $id)
     {
         $from = $request->get('from');
         $to = $request->get('to');
@@ -40,15 +37,17 @@ class ServiceContactController extends Controller
         }
 
         $config = $this->header();
-        $dados = $this->repository->orderBy('created_at', 'desc')->paginate(20);
+        $dados = $this->repository->orderBy('created_at', 'desc')->scopeQuery(function ($query) use ($id) {
+            return $query->where('service_id', $id);
+        })->paginate(20);
 
-        return view('admin.service-contact.index', compact('dados', 'config'));
+        return view('admin.service.contact.index', compact('dados', 'config', 'id'));
     }
 
     public function header()
     {
-        $config['title'] = "Serviços Contatos";
-        $config['activeMenu'] = 'form';
+        $config['title'] = "Áreas de Expertise > Contatos";
+        $config['activeMenu'] = 'service';
         $config['activeMenuN2'] = 'service';
         $config['route']['queryString'] = '';
         $getQueryString = request()->getQueryString();
@@ -70,7 +69,7 @@ class ServiceContactController extends Controller
             $this->updateView($dados, 'y');
         }
 
-        return view('admin.service-contact.show', compact('dados', 'config'));
+        return view('admin.service.contact.show', compact('dados', 'config'));
     }
 
     public function updateView($dados, $view)
@@ -107,15 +106,6 @@ class ServiceContactController extends Controller
 
             return redirect()->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
-
-            if ($request->wantsJson()) {
-
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
@@ -126,7 +116,7 @@ class ServiceContactController extends Controller
         return redirect()->back()->with('success', 'Registro excluído com sucesso!');
     }
 
-    public function export(Request $request)
+    public function export(Request $request, $id)
     {
         $from = $request->get('from');
         $to = $request->get('to');
@@ -139,16 +129,14 @@ class ServiceContactController extends Controller
         header("Pragma: no-cache");
         header("Expires: 0");
         header("Content-type: application/octet-stream");
-        header("Content-Disposition: attachment; filename=\"Contato_" . date('Ymds') . ".csv\"");
+        header("Content-Disposition: attachment; filename=\"Serviços_Contatos_" . date('Ymds') . ".csv\"");
 
-        $listar = $this->repository->all();
+        $listar = $this->repository->findByField('service_id', $id);
 
-        $campos = "Nome;";
-        $campos .= "Serviço;";
+        $campos = "Serviço;";
+        $campos .= "Nome;";
         $campos .= "E-mail;";
         $campos .= "Telefone;";
-        $campos .= "Celular;";
-        $campos .= "Arquivo;";
         $campos .= "Visualizado;";
         $campos .= "Mensagem;";
         $campos .= "Data;";
@@ -162,18 +150,11 @@ class ServiceContactController extends Controller
                 $view = 'Sim';
             }
 
-            $file = '';
-            if (isPost($dados->file)) {
-                $file = asset('uploads/contact/' . $dados->file);
-            }
-
             $item = '"';
-            $item .= utf8_decode($dados->name) . '";"';
             $item .= utf8_decode($dados->service->name) . '";"';
+            $item .= utf8_decode($dados->name) . '";"';
             $item .= utf8_decode($dados->email) . '";"';
             $item .= utf8_decode($dados->phone) . '";"';
-            $item .= utf8_decode($dados->cell_phone) . '";"';
-            $item .= utf8_decode($file) . '";"';
             $item .= utf8_decode($view) . '";"';
             $item .= utf8_decode($dados->message) . '";"';
             $item .= utf8_decode(date('d/m/Y h:i', strtotime($dados->created_at))) . '";';

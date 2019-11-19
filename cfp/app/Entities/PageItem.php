@@ -27,6 +27,7 @@ class PageItem extends Model implements Transformable
         'page_id',
         'name',
         'description',
+        'image',
         'order',
         'active'
     ];

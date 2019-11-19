@@ -34,12 +34,11 @@ Route::group(['namespace' => 'Site'], function () {
 
     Route::get('/areas-atuacao', 'ServiceController@index')->name('service');
     Route::get('/areas-atuacao/{seo_link}', 'ServiceController@show')->name('service.show');
+    Route::post('/areas-atuacao/store', 'ServiceController@store')->name('service.store');
 
-    Route::get('/seguimentos', 'SegmentController@index')->name('segment');
-    Route::get('/seguimentos/{seo_link}', 'SegmentController@show')->name('segment.show');
-
-    Route::get('/empreendimentos', 'EnterpriseController@index')->name('enterprise');
-    Route::get('/empreendimentos/{seo_link}', 'EnterpriseController@show')->name('enterprise.show');
+    Route::get('/segmentos', 'SegmentController@index')->name('segment');
+    Route::get('/segmentos/{seo_link}', 'SegmentController@show')->name('segment.show');
+    Route::post('/segmentos/store', 'SegmentController@store')->name('segment.store');
 
     Route::get('/noticias', 'BlogController@index')->name('blog');
     Route::get('/noticias/tag/{tag}', 'BlogController@tag')->name('blog.tag');

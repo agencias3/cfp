@@ -39,6 +39,27 @@ class PageImageController extends Controller
 
         $dados = $this->repository->orderBy('order', 'asc')->findWhere(['page_id' => $id]);
 
+        if($id == 2){
+            $config['activeMenu'] = 'about';
+        }
+
+        if($id == 4){
+            $config['activeMenu'] = 'about';
+        }
+
+        if($id == 8){
+            $config['activeMenu'] = 'about';
+        }
+
+        if($id == 9) {
+            $config['activeMenu'] = "awards";
+        }
+
+        if($id == 11){
+            $config['activeMenu'] = 'work';
+        }
+        $config['activeMenuN2'] = 'page-'.$id;
+
         return view('admin.configuration.page.gallery.index', compact('dados', 'id', 'config', 'routeUpload'));
     }
 

@@ -45,7 +45,7 @@ class ServiceItemController extends Controller
 
     public function header()
     {
-        $config['title'] = "Serviços > Items";
+        $config['title'] = "Áreas de Expertise > Items";
         $config['activeMenu'] = "service";
         $config['activeMenuN2'] = "item";
 

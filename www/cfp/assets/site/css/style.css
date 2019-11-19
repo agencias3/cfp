@@ -5865,3 +5865,12 @@ footer .menu-footer ul li {
       text-align: center !important; } }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+.pagination{float:left;width: 100%;margin-top: 45px;text-align: center;}
+.pagination *{display: inline-block;vertical-align: top;}
+.pagination li{margin: 10px 10px 0 0;}
+.pagination li span,.pagination  li a{width: 35px;height: 35px;line-height: 35px;background: transparent;text-align: center;color: #27304f;font-size: 1.6em;}
+.pagination li.active a, .pagination  li.active span{background: #27304f;color: #ffffff;}
+.pagination li a:hover{text-decoration: underline;}

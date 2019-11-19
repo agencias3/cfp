@@ -75,6 +75,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\AgenciaS3\Repositories\ServiceSegmentRepository::class, \AgenciaS3\Repositories\ServiceSegmentRepositoryEloquent::class);
         $this->app->bind(\AgenciaS3\Repositories\PostServiceRepository::class, \AgenciaS3\Repositories\PostServiceRepositoryEloquent::class);
         $this->app->bind(\AgenciaS3\Repositories\PostSegmentRepository::class, \AgenciaS3\Repositories\PostSegmentRepositoryEloquent::class);
+        $this->app->bind(\AgenciaS3\Repositories\SegmentContactRepository::class, \AgenciaS3\Repositories\SegmentContactRepositoryEloquent::class);
+        $this->app->bind(\AgenciaS3\Repositories\VacancyRepository::class, \AgenciaS3\Repositories\VacancyRepositoryEloquent::class);
         //:end-bindings:
     }
 }

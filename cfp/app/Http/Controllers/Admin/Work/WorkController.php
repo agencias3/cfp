@@ -19,7 +19,8 @@ class WorkController extends Controller
 
     protected $validator;
 
-    public function __construct(WorkRepository $repository, WorkValidator $validator)
+    public function __construct(WorkRepository $repository,
+                                WorkValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;
@@ -43,8 +44,8 @@ class WorkController extends Controller
 
     public function header()
     {
-        $config['title'] = "Trabalhe Conosco";
-        $config['activeMenu'] = 'form';
+        $config['title'] = "Carreiras > Cadastro";
+        $config['activeMenu'] = 'work';
         $config['activeMenuN2'] = 'work';
         $config['route']['queryString'] = '';
         $getQueryString = request()->getQueryString();
@@ -128,6 +129,10 @@ class WorkController extends Controller
         $campos = "Nome;";
         $campos .= "E-mail;";
         $campos .= "Telefone;";
+        $campos .= "Formação Profissional;";
+        $campos .= "Estado;";
+        $campos .= "Cidade;";
+        $campos .= "Área de Atuação Principal;";
         $campos .= "Anexo;";
         $campos .= "Visualizado;";
         $campos .= "Mensagem;";
@@ -151,6 +156,10 @@ class WorkController extends Controller
             $item .= utf8_decode($dados->name) . '";"';
             $item .= utf8_decode($dados->email) . '";"';
             $item .= utf8_decode($dados->phone) . '";"';
+            $item .= utf8_decode($dados->formation) . '";"';
+            $item .= utf8_decode($dados->state) . '";"';
+            $item .= utf8_decode($dados->city) . '";"';
+            $item .= utf8_decode($dados->occupation_area) . '";"';
             $item .= utf8_decode($file) . '";"';
             $item .= utf8_decode($view) . '";"';
             $item .= utf8_decode($dados->message) . '";"';

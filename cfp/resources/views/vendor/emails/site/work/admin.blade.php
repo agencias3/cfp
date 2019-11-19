@@ -84,8 +84,12 @@ $style = [
                                     <!-- Intro -->
                                     <p style="{{ $style['paragraph'] }}">
                                         Nome: {{ $data->name }}<br />
-                                        Telefone: {{ $data->phone }}<br />
                                         E-mail: {{ $data->email }}<br />
+                                        Telefone: {{ $data->phone }}<br />
+                                        Formação Profissional: {{ $data->formation }}<br />
+                                        Estado: {{ $data->state }}<br />
+                                        Cidade: {{ $data->city }}<br />
+                                        Área de Atuação Principal: {{ $data->occupation_area }}<br />
                                         @if(isset($data->file))
                                             Anexo: <a href="{{ asset('uploads/work/'.$data->file) }}" target="_blank">Visualizar Arquivo</a><br />
                                         @endif

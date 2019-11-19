@@ -39,7 +39,7 @@ class ServiceSegmentController extends Controller
 
     public function header()
     {
-        $config['title'] = "Serviços";
+        $config['title'] = "Áreas de Expertise";
         $config['activeMenu'] = 'service';
         $config['activeMenuN2'] = 'segment';
         $config['action'] = 'Segmentos';

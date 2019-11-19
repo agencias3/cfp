@@ -33,6 +33,30 @@
                             <span class="help-block">{{ $dados->phone }}</span>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label text-bold">Formação Profissional: </label>
+                            <span class="help-block">{{ $dados->formation }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label text-bold">Estado: </label>
+                            <span class="help-block">{{ $dados->state }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label text-bold">Cidade: </label>
+                            <span class="help-block">{{ $dados->city }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label text-bold">Área de Atuação Principal: </label>
+                            <span class="help-block">{{ $dados->occupation_area }}</span>
+                        </div>
+                    </div>
                     @if(isPost($dados->file))
                     <div class="col-md-4">
                         <div class="form-group">

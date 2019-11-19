@@ -58,4 +58,9 @@ class Segment extends Model implements Transformable
         return $this->hasMany(ServiceSegment::class);
     }
 
+    public function contacts()
+    {
+        return $this->hasMany(SegmentContact::class);
+    }
+
 }
